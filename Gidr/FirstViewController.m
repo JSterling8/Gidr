@@ -9,15 +9,20 @@
 #import "FirstViewController.h"
 
 @interface FirstViewController ()
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *eventButtons;
 
 @end
 
 @implementation FirstViewController
+- (IBAction)goToEvent:(UIButton *)sender {
+    
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
 - (void)didReceiveMemoryWarning
