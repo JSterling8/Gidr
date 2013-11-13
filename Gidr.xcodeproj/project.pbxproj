@@ -29,6 +29,7 @@
 		AA4688D01833BD6300609BC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA46889D1833BD6300609BC1 /* Foundation.framework */; };
 		AA4688D81833BD6300609BC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA4688D61833BD6300609BC1 /* InfoPlist.strings */; };
 		AA4688DB1833BD6300609BC1 /* GidrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688DA1833BD6300609BC1 /* GidrTests.m */; };
+		AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		AA4688D71833BD6300609BC1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA4688D91833BD6300609BC1 /* GidrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GidrTests.h; sourceTree = "<group>"; };
 		AA4688DA1833BD6300609BC1 /* GidrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GidrTests.m; sourceTree = "<group>"; };
+		AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "huddersfield-festival-of-light1.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		AA4688A11833BD6300609BC1 /* Gidr */ = {
 			isa = PBXGroup;
 			children = (
+				AA4688E41833CC3800609BC1 /* Resources */,
 				AA4688AA1833BD6300609BC1 /* AppDelegate.h */,
 				AA4688AB1833BD6300609BC1 /* AppDelegate.m */,
 				AA4688B31833BD6300609BC1 /* MainStoryboard_iPhone.storyboard */,
@@ -178,6 +181,14 @@
 				AA4688D61833BD6300609BC1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA4688E41833CC3800609BC1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				AA4688BF1833BD6300609BC1 /* first@2x.png in Resources */,
 				AA4688C41833BD6300609BC1 /* second.png in Resources */,
 				AA4688C61833BD6300609BC1 /* second@2x.png in Resources */,
+				AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
