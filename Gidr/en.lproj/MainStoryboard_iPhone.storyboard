@@ -4,19 +4,35 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller - Discover-->
+        <scene sceneID="7tS-KM-Hu6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkh-bx-rkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="9Ie-gK-8mT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" id="rgq-2k-gai"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xXC-Hl-8Xx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="Ta8-va-Bzo"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="169" y="-239"/>
+        </scene>
         <!--First View Controller - Discover-->
         <scene sceneID="11">
             <objects>
                 <viewController title="Discover" id="2" customClass="FirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoJ-Rs-ZMH">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeY-rA-HO1">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="126" id="1jh-Vf-grq"/>
+                                            <constraint firstAttribute="height" constant="125" id="apS-Dt-8NG"/>
                                             <constraint firstAttribute="width" constant="125" id="zny-BE-4pk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -27,6 +43,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="gW5-Wx-X6I"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-rb-Rd2">
                                         <constraints>
@@ -40,10 +59,13 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="WqM-Xs-xzZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-3l-Qij">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="126" id="M1Y-PP-Q3Q"/>
+                                            <constraint firstAttribute="height" constant="125" id="2oj-cz-fJw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" backgroundImage="huddersfield-festival-of-light1.jpg">
@@ -53,6 +75,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="NnO-ta-ohu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mek-kN-0m9">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -63,10 +88,13 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="5Ts-8f-xcR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-BO-d9D">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="126" id="Jdm-7B-6hN"/>
+                                            <constraint firstAttribute="height" constant="125" id="hJs-st-X9a"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" backgroundImage="huddersfield-festival-of-light1.jpg">
@@ -76,6 +104,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="0mq-ee-ro3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvA-WX-07A">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -86,10 +117,13 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="QuH-Xh-l4M"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwT-NC-giG">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="126" id="d7N-8P-soC"/>
+                                            <constraint firstAttribute="height" constant="125" type="user" id="5fi-mr-c6B"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" backgroundImage="huddersfield-festival-of-light1.jpg">
@@ -99,6 +133,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="ANO-Bq-fhc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCa-pK-3ax">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -109,37 +146,40 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="4rx-el-kqc" kind="push" id="mn4-6u-og8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="nQR-BO-d9D" firstAttribute="top" secondItem="YoJ-Rs-ZMH" secondAttribute="top" constant="287" id="0Nh-SJ-0nf"/>
                                     <constraint firstItem="oeY-rA-HO1" firstAttribute="top" secondItem="YoJ-Rs-ZMH" secondAttribute="top" constant="20" symbolic="YES" type="default" id="0UR-Sm-QZF"/>
                                     <constraint firstItem="4sQ-rb-Rd2" firstAttribute="top" secondItem="YoJ-Rs-ZMH" secondAttribute="top" constant="20" symbolic="YES" type="default" id="2Ec-KT-kUZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="SwT-NC-giG" secondAttribute="bottom" constant="-47" id="3vS-Jt-D1R"/>
+                                    <constraint firstAttribute="bottom" secondItem="nQR-BO-d9D" secondAttribute="bottom" constant="43" id="Aal-VC-F7U"/>
                                     <constraint firstAttribute="trailing" secondItem="4sQ-rb-Rd2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BDX-Q8-1Wp"/>
-                                    <constraint firstItem="OvA-WX-07A" firstAttribute="bottom" secondItem="nQR-BO-d9D" secondAttribute="bottom" type="default" id="Byk-DW-VqH"/>
                                     <constraint firstAttribute="trailing" secondItem="OvA-WX-07A" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CUF-QV-1jy"/>
                                     <constraint firstItem="oeY-rA-HO1" firstAttribute="trailing" secondItem="7fx-3l-Qij" secondAttribute="trailing" type="default" id="E5g-cS-XME"/>
                                     <constraint firstItem="mek-kN-0m9" firstAttribute="top" secondItem="7fx-3l-Qij" secondAttribute="top" type="default" id="Ehh-Dk-Rxd"/>
-                                    <constraint firstItem="nQR-BO-d9D" firstAttribute="top" secondItem="7fx-3l-Qij" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GVq-xA-fSf"/>
                                     <constraint firstItem="7fx-3l-Qij" firstAttribute="leading" secondItem="YoJ-Rs-ZMH" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ix2-op-K09"/>
-                                    <constraint firstItem="7fx-3l-Qij" firstAttribute="top" secondItem="YoJ-Rs-ZMH" secondAttribute="top" constant="153" id="Kbd-tA-YK9"/>
+                                    <constraint firstItem="SwT-NC-giG" firstAttribute="top" secondItem="nQR-BO-d9D" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KQV-cC-UsT"/>
                                     <constraint firstItem="SwT-NC-giG" firstAttribute="leading" secondItem="YoJ-Rs-ZMH" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NVm-Mh-2Ap"/>
+                                    <constraint firstItem="7fx-3l-Qij" firstAttribute="bottom" secondItem="mek-kN-0m9" secondAttribute="bottom" type="default" id="OhR-yf-R9A"/>
                                     <constraint firstItem="mek-kN-0m9" firstAttribute="leading" secondItem="4sQ-rb-Rd2" secondAttribute="leading" type="default" id="SHB-61-XdS"/>
                                     <constraint firstItem="rCa-pK-3ax" firstAttribute="top" secondItem="SwT-NC-giG" secondAttribute="top" type="default" id="T8C-ia-xjF"/>
                                     <constraint firstItem="SwT-NC-giG" firstAttribute="trailing" secondItem="nQR-BO-d9D" secondAttribute="trailing" type="default" id="U4Q-rB-lfb"/>
-                                    <constraint firstItem="oeY-rA-HO1" firstAttribute="bottom" secondItem="4sQ-rb-Rd2" secondAttribute="bottom" type="default" id="ZNS-I5-XPA"/>
+                                    <constraint firstItem="7fx-3l-Qij" firstAttribute="top" secondItem="oeY-rA-HO1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YUi-Gk-JMC"/>
                                     <constraint firstAttribute="trailing" secondItem="rCa-pK-3ax" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aZR-cO-SWO"/>
                                     <constraint firstItem="rCa-pK-3ax" firstAttribute="leading" secondItem="OvA-WX-07A" secondAttribute="leading" type="default" id="cxc-Gk-Pir"/>
                                     <constraint firstItem="4sQ-rb-Rd2" firstAttribute="leading" secondItem="YoJ-Rs-ZMH" secondAttribute="leading" constant="175" id="d58-MO-WPr"/>
+                                    <constraint firstItem="mek-kN-0m9" firstAttribute="top" secondItem="4sQ-rb-Rd2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dOe-fd-kW2"/>
                                     <constraint firstItem="oeY-rA-HO1" firstAttribute="leading" secondItem="YoJ-Rs-ZMH" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="daS-S0-iPz"/>
                                     <constraint firstItem="nQR-BO-d9D" firstAttribute="top" secondItem="OvA-WX-07A" secondAttribute="top" type="default" id="hgw-n0-CFS"/>
                                     <constraint firstAttribute="trailing" secondItem="mek-kN-0m9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="n0A-o1-YB6"/>
-                                    <constraint firstItem="SwT-NC-giG" firstAttribute="top" secondItem="YoJ-Rs-ZMH" secondAttribute="top" constant="420" id="nDb-t7-9b6"/>
                                     <constraint firstItem="OvA-WX-07A" firstAttribute="leading" secondItem="mek-kN-0m9" secondAttribute="leading" type="default" id="nG6-SR-pdW"/>
+                                    <constraint firstItem="rCa-pK-3ax" firstAttribute="top" secondItem="OvA-WX-07A" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nrM-uD-B3i"/>
                                     <constraint firstItem="7fx-3l-Qij" firstAttribute="trailing" secondItem="nQR-BO-d9D" secondAttribute="trailing" type="default" id="oUp-xR-vmx"/>
                                     <constraint firstItem="nQR-BO-d9D" firstAttribute="leading" secondItem="YoJ-Rs-ZMH" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ora-gs-8GD"/>
                                     <constraint firstItem="rCa-pK-3ax" firstAttribute="bottom" secondItem="SwT-NC-giG" secondAttribute="bottom" type="default" id="t0A-HC-7wY"/>
-                                    <constraint firstItem="OvA-WX-07A" firstAttribute="top" secondItem="mek-kN-0m9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vg0-Vv-4Gd"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -152,10 +192,38 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="first" id="7"/>
+                    <navigationItem key="navigationItem" title="Events" id="5h5-Ka-M1L"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="-221"/>
+        </scene>
+        <!--Event View Controller - Festival of Light-->
+        <scene sceneID="L4f-um-NOR">
+            <objects>
+                <viewController id="4rx-el-kqc" customClass="EventViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cFa-GW-8jc">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="huddersfield-festival-of-light1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oD4-Hv-0hL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="AlU-Wk-dqV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oD4-Hv-0hL" firstAttribute="top" secondItem="cFa-GW-8jc" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Dj3-CK-qe3"/>
+                            <constraint firstAttribute="trailing" secondItem="oD4-Hv-0hL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZPS-y7-6xz"/>
+                            <constraint firstItem="oD4-Hv-0hL" firstAttribute="leading" secondItem="cFa-GW-8jc" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oei-6M-7bQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Festival of Light" id="kde-Sn-TX1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIu-wh-n99" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224" y="-221"/>
         </scene>
         <!--Second View Controller - My Events-->
         <scene sceneID="13">
@@ -183,13 +251,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="9Ie-gK-8mT" kind="relationship" relationship="viewControllers" id="G1D-ws-6cI"/>
+                        <segue destination="3" kind="relationship" relationship="viewControllers" id="iHi-4M-QOr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="-398" y="262"/>
         </scene>
     </scenes>
     <resources>
@@ -198,6 +266,9 @@
         <image name="second" width="16" height="16"/>
     </resources>
     <classes>
+        <class className="EventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventViewController.h"/>
+        </class>
         <class className="FirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
             <relationships>
@@ -217,4 +288,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="gW5-Wx-X6I"/>
+    </inferredMetricsTieBreakers>
 </document>

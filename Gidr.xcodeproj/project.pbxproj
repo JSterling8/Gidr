@@ -30,6 +30,7 @@
 		AA4688D81833BD6300609BC1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA4688D61833BD6300609BC1 /* InfoPlist.strings */; };
 		AA4688DB1833BD6300609BC1 /* GidrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688DA1833BD6300609BC1 /* GidrTests.m */; };
 		AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */; };
+		AA4688E91833CFBB00609BC1 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688E81833CFBB00609BC1 /* EventViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		AA4688D91833BD6300609BC1 /* GidrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GidrTests.h; sourceTree = "<group>"; };
 		AA4688DA1833BD6300609BC1 /* GidrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GidrTests.m; sourceTree = "<group>"; };
 		AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "huddersfield-festival-of-light1.jpg"; sourceTree = "<group>"; };
+		AA4688E71833CFBB00609BC1 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		AA4688E81833CFBB00609BC1 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				AA4688C31833BD6300609BC1 /* second.png */,
 				AA4688C51833BD6300609BC1 /* second@2x.png */,
 				AA4688A21833BD6300609BC1 /* Supporting Files */,
+				AA4688E71833CFBB00609BC1 /* EventViewController.h */,
+				AA4688E81833CFBB00609BC1 /* EventViewController.m */,
 			);
 			path = Gidr;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				AA4688AC1833BD6300609BC1 /* AppDelegate.m in Sources */,
 				AA4688BB1833BD6300609BC1 /* FirstViewController.m in Sources */,
 				AA4688C21833BD6300609BC1 /* SecondViewController.m in Sources */,
+				AA4688E91833CFBB00609BC1 /* EventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
