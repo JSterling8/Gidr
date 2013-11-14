@@ -430,10 +430,14 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJg-2M-cXS">
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJg-2M-cXS">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="LKe-H3-9hH"/>
+                                            <constraint firstAttribute="width" constant="49" id="MZT-M3-nOO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="checkBox.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -441,12 +445,16 @@
                                         </state>
                                         <connections>
                                             <action selector="boxChecked:" destination="M3B-nI-l8y" eventType="touchUpInside" id="Vvo-ot-PKh"/>
+                                            <action selector="checkTheBox:" destination="M3B-nI-l8y" eventType="touchUpInside" id="TSt-dQ-Lhz"/>
                                             <action selector="checkboxes:" destination="M3B-nI-l8y" eventType="touchUpInside" id="J84-au-VMH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY8-PE-F1B">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY8-PE-F1B">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="Qgk-fB-8zz"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" image="checkBox.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -457,9 +465,12 @@
                                             <action selector="boxChecked:" destination="M3B-nI-l8y" eventType="touchUpInside" id="7nI-eS-vJk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-KD-j62">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-KD-j62">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="lMf-6s-AI3"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" image="checkBox.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -471,9 +482,12 @@
                                             <action selector="checkboxes:" destination="M3B-nI-l8y" eventType="touchUpInside" id="C8o-MP-nfK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvk-N1-ghL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvk-N1-ghL">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="Rtt-AZ-p0U"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" image="checkBox.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -484,9 +498,12 @@
                                             <action selector="boxChecked:" destination="M3B-nI-l8y" eventType="touchUpInside" id="g6s-rS-nbj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-7g-iss">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-7g-iss">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="J1U-fU-tNC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" image="checkBox.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -510,24 +527,28 @@
                                     <constraint firstAttribute="trailing" secondItem="EJg-2M-cXS" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="EXk-cW-V0H"/>
                                     <constraint firstItem="tL4-Jm-q7n" firstAttribute="top" secondItem="hAy-Zp-6WH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="F6O-tM-wvA"/>
                                     <constraint firstItem="hAy-Zp-6WH" firstAttribute="top" secondItem="yIE-oA-PA6" secondAttribute="top" constant="9" id="G9v-0P-Gjc"/>
+                                    <constraint firstItem="EJg-2M-cXS" firstAttribute="top" secondItem="yIE-oA-PA6" secondAttribute="top" constant="158" id="Gbs-CW-PTQ"/>
+                                    <constraint firstItem="Rcu-KD-j62" firstAttribute="leading" secondItem="uvk-N1-ghL" secondAttribute="leading" type="default" id="JHE-Tb-9Q2"/>
                                     <constraint firstItem="5kZ-Ny-kGj" firstAttribute="top" secondItem="tL4-Jm-q7n" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KoG-Il-Xk1"/>
                                     <constraint firstAttribute="trailing" secondItem="fsE-7g-iss" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NLS-cA-SQV"/>
-                                    <constraint firstItem="NY8-PE-F1B" firstAttribute="centerY" secondItem="yIE-oA-PA6" secondAttribute="centerY" type="default" id="QbA-Af-Ibb"/>
                                     <constraint firstAttribute="trailing" secondItem="uvk-N1-ghL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ScE-zS-4rx"/>
                                     <constraint firstItem="SOw-MS-xWt" firstAttribute="trailing" secondItem="yIE-oA-PA6" secondAttribute="trailing" type="default" id="Ud0-Bm-G4u"/>
                                     <constraint firstItem="tL4-Jm-q7n" firstAttribute="leading" secondItem="hAy-Zp-6WH" secondAttribute="leading" type="default" id="Ue5-JN-AZ0"/>
+                                    <constraint firstItem="NY8-PE-F1B" firstAttribute="leading" secondItem="Rcu-KD-j62" secondAttribute="leading" type="default" id="WBF-FO-0Su"/>
                                     <constraint firstItem="WoO-s8-Xu0" firstAttribute="baseline" secondItem="5kZ-Ny-kGj" secondAttribute="baseline" type="default" id="Xb1-Gv-j35"/>
                                     <constraint firstItem="9VA-as-n7P" firstAttribute="top" secondItem="yIE-oA-PA6" secondAttribute="top" constant="51" id="ZO7-xm-QPq"/>
                                     <constraint firstItem="uvk-N1-ghL" firstAttribute="top" secondItem="Rcu-KD-j62" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aJ4-19-68i"/>
                                     <constraint firstAttribute="trailing" secondItem="tL4-Jm-q7n" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aNN-7S-3Kc"/>
-                                    <constraint firstAttribute="bottom" secondItem="fsE-7g-iss" secondAttribute="bottom" constant="51" id="ayb-1n-8V9"/>
                                     <constraint firstAttribute="trailing" secondItem="hAy-Zp-6WH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="b8o-Qb-jeB"/>
                                     <constraint firstAttribute="trailing" secondItem="NY8-PE-F1B" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cFE-oX-h6z"/>
                                     <constraint firstItem="SOw-MS-xWt" firstAttribute="top" secondItem="yIE-oA-PA6" secondAttribute="top" type="default" id="f6b-Vb-tue"/>
+                                    <constraint firstItem="fsE-7g-iss" firstAttribute="top" secondItem="uvk-N1-ghL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fi8-Em-oVv"/>
                                     <constraint firstItem="NY8-PE-F1B" firstAttribute="top" secondItem="EJg-2M-cXS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ide-s6-aFw"/>
+                                    <constraint firstItem="EJg-2M-cXS" firstAttribute="leading" secondItem="NY8-PE-F1B" secondAttribute="leading" type="default" id="kfP-nR-1Kc"/>
                                     <constraint firstItem="M32-6X-Fqd" firstAttribute="leading" secondItem="yIE-oA-PA6" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mNG-91-uVN"/>
                                     <constraint firstItem="M32-6X-Fqd" firstAttribute="baseline" secondItem="hAy-Zp-6WH" secondAttribute="baseline" type="default" id="nkW-uN-QL4"/>
                                     <constraint firstItem="SOw-MS-xWt" firstAttribute="centerY" secondItem="M32-6X-Fqd" secondAttribute="centerY" type="default" id="qDi-SA-lCx"/>
+                                    <constraint firstItem="uvk-N1-ghL" firstAttribute="leading" secondItem="fsE-7g-iss" secondAttribute="leading" type="default" id="qrt-kd-YOu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -541,12 +562,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="JGt-GA-glE"/>
                     <connections>
-                        <outlet property="checkbox" destination="EJg-2M-cXS" id="viA-kl-byC"/>
+                        <outlet property="checkbox" destination="EJg-2M-cXS" id="jeZ-hu-qov"/>
                         <outletCollection property="checkboxes" destination="EJg-2M-cXS" id="mnA-tv-Ji8"/>
                         <outletCollection property="checkboxes" destination="NY8-PE-F1B" id="Jpm-t5-FPM"/>
                         <outletCollection property="checkboxes" destination="Rcu-KD-j62" id="u5P-lV-2PS"/>
                         <outletCollection property="checkboxes" destination="uvk-N1-ghL" id="5sI-TK-OTb"/>
                         <outletCollection property="checkboxes" destination="fsE-7g-iss" id="lUg-QW-hgQ"/>
+                        <outletCollection property="checkboxes" destination="EJg-2M-cXS" id="8Lh-kz-tsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCX-dg-lHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -768,6 +790,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkBox.png" width="20" height="20"/>
         <image name="first" width="16" height="16"/>
         <image name="huddersfield-festival-of-light1.jpg" width="960" height="615"/>
         <image name="second" width="16" height="16"/>
@@ -795,8 +818,7 @@
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="boxChecked:" candidateClass="UIButton"/>
-                <relationship kind="outletCollection" name="checkboxes" candidateClass="UIButton"/>
+                <relationship kind="action" name="checkTheBox:"/>
             </relationships>
         </class>
     </classes>

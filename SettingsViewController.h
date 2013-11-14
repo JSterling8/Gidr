@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SettingsViewController : UIViewController
-@property BOOL checkbox;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *checkboxes;
-- (IBAction)boxChecked:(UIButton *)sender;
+@interface SettingsViewController : UIViewController{
+    BOOL checked;
+}
 
 @end

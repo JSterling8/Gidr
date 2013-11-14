@@ -10,17 +10,22 @@
 
 @implementation SettingsViewController
 
-- (IBAction)boxChecked:(id)sender {
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    checked = NO;
+}
+- (IBAction)checkTheBox:(id)sender {
     
-    if (!_checkbox) {
+    if (!checked) {
         [sender setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-        _checkbox = YES;
+        checked = YES;
     }
     
-    else if (_checkbox) {
+    else if (checked) {
         [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-        _checkbox = NO;
+        checked = NO;
     }
     
 }
+
 @end
