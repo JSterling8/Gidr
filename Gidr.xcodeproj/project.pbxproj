@@ -31,6 +31,12 @@
 		AA4688DB1833BD6300609BC1 /* GidrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688DA1833BD6300609BC1 /* GidrTests.m */; };
 		AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */; };
 		AA4688E91833CFBB00609BC1 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688E81833CFBB00609BC1 /* EventViewController.m */; };
+		AAF6C0D61835196E0071C4AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF6C0D51835196E0071C4AB /* Event.m */; };
+		AAF6C0D9183537A90071C4AB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF6C0D8183537A90071C4AB /* SettingsViewController.m */; };
+		AAF6C0DE183539720071C4AB /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DA183539720071C4AB /* checkBox.png */; };
+		AAF6C0DF183539720071C4AB /* checkBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DB183539720071C4AB /* checkBox@2x.png */; };
+		AAF6C0E0183539720071C4AB /* checkBoxMarked.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DC183539720071C4AB /* checkBoxMarked.png */; };
+		AAF6C0E1183539720071C4AB /* checkBoxMarked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +82,14 @@
 		AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "huddersfield-festival-of-light1.jpg"; sourceTree = "<group>"; };
 		AA4688E71833CFBB00609BC1 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		AA4688E81833CFBB00609BC1 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		AAF6C0D41835196E0071C4AB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		AAF6C0D51835196E0071C4AB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		AAF6C0D7183537A90071C4AB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		AAF6C0D8183537A90071C4AB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		AAF6C0DA183539720071C4AB /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
+		AAF6C0DB183539720071C4AB /* checkBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox@2x.png"; sourceTree = "<group>"; };
+		AAF6C0DC183539720071C4AB /* checkBoxMarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBoxMarked.png; sourceTree = "<group>"; };
+		AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBoxMarked@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,8 @@
 		AA46888F1833BD6300609BC1 = {
 			isa = PBXGroup;
 			children = (
+				AAF6C0D7183537A90071C4AB /* SettingsViewController.h */,
+				AAF6C0D8183537A90071C4AB /* SettingsViewController.m */,
 				AA4688A11833BD6300609BC1 /* Gidr */,
 				AA4688D31833BD6300609BC1 /* GidrTests */,
 				AA46889A1833BD6300609BC1 /* Frameworks */,
@@ -135,6 +151,7 @@
 		AA4688A11833BD6300609BC1 /* Gidr */ = {
 			isa = PBXGroup;
 			children = (
+				AAF6C0D31835195C0071C4AB /* Models */,
 				AA4688E41833CC3800609BC1 /* Resources */,
 				AA4688AA1833BD6300609BC1 /* AppDelegate.h */,
 				AA4688AB1833BD6300609BC1 /* AppDelegate.m */,
@@ -191,9 +208,22 @@
 		AA4688E41833CC3800609BC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AAF6C0DA183539720071C4AB /* checkBox.png */,
+				AAF6C0DB183539720071C4AB /* checkBox@2x.png */,
+				AAF6C0DC183539720071C4AB /* checkBoxMarked.png */,
+				AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */,
 				AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		AAF6C0D31835195C0071C4AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAF6C0D41835196E0071C4AB /* Event.h */,
+				AAF6C0D51835196E0071C4AB /* Event.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +308,10 @@
 				AA4688C41833BD6300609BC1 /* second.png in Resources */,
 				AA4688C61833BD6300609BC1 /* second@2x.png in Resources */,
 				AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */,
+				AAF6C0DE183539720071C4AB /* checkBox.png in Resources */,
+				AAF6C0DF183539720071C4AB /* checkBox@2x.png in Resources */,
+				AAF6C0E0183539720071C4AB /* checkBoxMarked.png in Resources */,
+				AAF6C0E1183539720071C4AB /* checkBoxMarked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +351,8 @@
 				AA4688BB1833BD6300609BC1 /* FirstViewController.m in Sources */,
 				AA4688C21833BD6300609BC1 /* SecondViewController.m in Sources */,
 				AA4688E91833CFBB00609BC1 /* EventViewController.m in Sources */,
+				AAF6C0D61835196E0071C4AB /* Event.m in Sources */,
+				AAF6C0D9183537A90071C4AB /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +543,7 @@
 				AA4688E01833BD6300609BC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA4688E11833BD6300609BC1 /* Build configuration list for PBXNativeTarget "GidrTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +552,7 @@
 				AA4688E31833BD6300609BC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

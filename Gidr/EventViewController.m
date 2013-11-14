@@ -35,4 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)attending:(UIButton *)sender {
+    sender.highlighted = YES;
+}
 @end
