@@ -12,20 +12,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    checked = NO;
 }
-- (IBAction)checkTheBox:(id)sender {
-    
-    if (!checked) {
-        [sender setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-        checked = YES;
-    }
-    
-    else if (checked) {
-        [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-        checked = NO;
-    }
-    
-}
-// This is a change
+
+
 @end

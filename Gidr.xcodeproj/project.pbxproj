@@ -33,10 +33,6 @@
 		AA4688E91833CFBB00609BC1 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4688E81833CFBB00609BC1 /* EventViewController.m */; };
 		AAF6C0D61835196E0071C4AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF6C0D51835196E0071C4AB /* Event.m */; };
 		AAF6C0D9183537A90071C4AB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF6C0D8183537A90071C4AB /* SettingsViewController.m */; };
-		AAF6C0DE183539720071C4AB /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DA183539720071C4AB /* checkBox.png */; };
-		AAF6C0DF183539720071C4AB /* checkBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DB183539720071C4AB /* checkBox@2x.png */; };
-		AAF6C0E0183539720071C4AB /* checkBoxMarked.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DC183539720071C4AB /* checkBoxMarked.png */; };
-		AAF6C0E1183539720071C4AB /* checkBoxMarked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,10 +82,6 @@
 		AAF6C0D51835196E0071C4AB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		AAF6C0D7183537A90071C4AB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		AAF6C0D8183537A90071C4AB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		AAF6C0DA183539720071C4AB /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
-		AAF6C0DB183539720071C4AB /* checkBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox@2x.png"; sourceTree = "<group>"; };
-		AAF6C0DC183539720071C4AB /* checkBoxMarked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBoxMarked.png; sourceTree = "<group>"; };
-		AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBoxMarked@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,10 +200,6 @@
 		AA4688E41833CC3800609BC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AAF6C0DA183539720071C4AB /* checkBox.png */,
-				AAF6C0DB183539720071C4AB /* checkBox@2x.png */,
-				AAF6C0DC183539720071C4AB /* checkBoxMarked.png */,
-				AAF6C0DD183539720071C4AB /* checkBoxMarked@2x.png */,
 				AA4688E51833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg */,
 			);
 			name = Resources;
@@ -308,10 +296,6 @@
 				AA4688C41833BD6300609BC1 /* second.png in Resources */,
 				AA4688C61833BD6300609BC1 /* second@2x.png in Resources */,
 				AA4688E61833CC4D00609BC1 /* huddersfield-festival-of-light1.jpg in Resources */,
-				AAF6C0DE183539720071C4AB /* checkBox.png in Resources */,
-				AAF6C0DF183539720071C4AB /* checkBox@2x.png in Resources */,
-				AAF6C0E0183539720071C4AB /* checkBoxMarked.png in Resources */,
-				AAF6C0E1183539720071C4AB /* checkBoxMarked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
