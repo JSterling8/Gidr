@@ -7,12 +7,17 @@
 //
 
 #import "SettingsViewController.h"
+@interface SettingsViewController()
+@property (weak, nonatomic) IBOutlet UISwitch *changeOption;
+
+@end
 
 @implementation SettingsViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
 }
+
 
 
 @end
