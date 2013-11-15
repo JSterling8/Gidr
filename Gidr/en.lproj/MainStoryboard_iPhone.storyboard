@@ -253,7 +253,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="118" id="K9n-hY-0KT"/>
                                         </constraints>
-                                        <mutableString key="text">Description: Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Description: Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -327,7 +327,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="fA6-Ma-vBK" firstAttribute="bottom" secondItem="yed-JI-b6A" secondAttribute="bottom" type="default" id="1aS-z1-Ts3"/>
                                     <constraint firstItem="XM5-Hr-XfQ" firstAttribute="leading" secondItem="yed-JI-b6A" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2BU-7i-Vih"/>
                                     <constraint firstItem="PCd-kh-mmy" firstAttribute="trailing" secondItem="QgZ-io-dDD" secondAttribute="trailing" type="default" id="3pE-dd-A67"/>
                                     <constraint firstAttribute="trailing" secondItem="WXO-6p-Ce2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7jD-EG-t9n"/>
@@ -343,6 +342,7 @@
                                     <constraint firstItem="43J-A6-d1P" firstAttribute="leading" secondItem="PV4-cC-Vsb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QsG-4C-vh3"/>
                                     <constraint firstItem="WXO-6p-Ce2" firstAttribute="top" secondItem="CxE-jb-w83" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Tww-GA-7lL"/>
                                     <constraint firstItem="43J-A6-d1P" firstAttribute="top" secondItem="CxE-jb-w83" secondAttribute="top" constant="20" symbolic="YES" type="default" id="X1T-Xr-UDV"/>
+                                    <constraint firstItem="fA6-Ma-vBK" firstAttribute="top" secondItem="CxE-jb-w83" secondAttribute="top" constant="109" id="aYA-3N-kG1"/>
                                     <constraint firstItem="PCd-kh-mmy" firstAttribute="top" secondItem="QgZ-io-dDD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="c7H-hN-9Ih"/>
                                     <constraint firstItem="ViS-az-bHU" firstAttribute="leading" secondItem="CxE-jb-w83" secondAttribute="leading" constant="19" id="chS-AC-CmG"/>
                                     <constraint firstItem="ViS-az-bHU" firstAttribute="leading" secondItem="QgZ-io-dDD" secondAttribute="leading" type="default" id="fCh-UG-M2K"/>
@@ -425,7 +425,7 @@
                                     </button>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-MS-xWt">
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -594,7 +594,6 @@
         <!--Second View Controller - My Events-->
         <scene sceneID="13">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController title="My Events" id="3" customClass="SecondViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Wh-VF-B5C">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
@@ -766,6 +765,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653" y="617"/>
         </scene>
