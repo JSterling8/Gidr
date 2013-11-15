@@ -7,25 +7,17 @@
 //
 
 #import "SettingsViewController.h"
+@interface SettingsViewController()
+@property (weak, nonatomic) IBOutlet UISwitch *changeOption;
+
+@end
 
 @implementation SettingsViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    checked = NO;
 }
-- (IBAction)checkTheBox:(id)sender {
-    
-    if (!checked) {
-        [sender setImage:[UIImage imageNamed:@"checkBoxMarked.png"] forState:UIControlStateNormal];
-        checked = YES;
-    }
-    
-    else if (checked) {
-        [sender setImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateNormal];
-        checked = NO;
-    }
-    
-}
+
+
 
 @end

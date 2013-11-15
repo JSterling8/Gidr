@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SettingsViewController : UIViewController{
-    BOOL checked;
-}
+@interface SettingsViewController : UIViewController
+
 
 @end
