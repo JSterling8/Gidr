@@ -9,6 +9,7 @@
 #import "EventViewController.h"
 
 @interface EventViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *eventScrollView;
 
 @end
 
@@ -34,6 +35,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    _eventScrollView.contentSize=CGSizeMake(0, 460);
+    _eventScrollView.contentInset=UIEdgeInsetsMake(64.0, 0.0, 44.0, 0.0);
+    [_eventScrollView setContentOffset:CGPointMake(0,0)];}
 
 - (IBAction)attending:(UIButton *)sender {
     sender.highlighted = YES;

@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *myEventsScrollView;
 
 @end
 
@@ -27,5 +28,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    _myEventsScrollView.contentSize=CGSizeMake(0, 560);
+    _myEventsScrollView.contentInset=UIEdgeInsetsMake(64.0, 0.0, 44.0, 0.0);
+    [_myEventsScrollView setContentOffset:CGPointMake(0,-64)];
+}
+
+
 
 @end
