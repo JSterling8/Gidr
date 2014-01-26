@@ -7,11 +7,15 @@
 //
 
 #import "GidrAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation GidrAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"boAthkaIxW55UoUbseXVSzACg1FwQwCeZEvwD4Bi"
+                  clientKey:@"355Ag9TMkXj4DwYowhx7WjfUwfXjAA8HXWZ2zOmZ"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
     return YES;
 }

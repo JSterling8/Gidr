@@ -21,6 +21,19 @@
 		D96C1B2D189571DC00123AFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0F189571DC00123AFA /* UIKit.framework */; };
 		D96C1B35189571DC00123AFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B33189571DC00123AFA /* InfoPlist.strings */; };
 		D96C1B37189571DC00123AFA /* GidrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B36189571DC00123AFA /* GidrTests.m */; };
+		D96C1B421895746700123AFA /* GidrEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B411895746700123AFA /* GidrEventViewController.m */; };
+		D96C1B451895750C00123AFA /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B441895750C00123AFA /* GidrEvent.m */; };
+		D96C1B481895792E00123AFA /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B471895792E00123AFA /* radar.png */; };
+		D96C1B4A1895796F00123AFA /* magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B491895796F00123AFA /* magnify.png */; };
+		D96C1B4C189579D100123AFA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4B189579D100123AFA /* Parse.framework */; };
+		D96C1B4E18957A0400123AFA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4D18957A0400123AFA /* AudioToolbox.framework */; };
+		D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4F18957A0D00123AFA /* CFNetwork.framework */; };
+		D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5118957A2100123AFA /* libz.dylib */; };
+		D96C1B5418957A2900123AFA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5318957A2900123AFA /* MobileCoreServices.framework */; };
+		D96C1B5618957A3200123AFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5518957A3200123AFA /* QuartzCore.framework */; };
+		D96C1B5818957A3800123AFA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5718957A3800123AFA /* Security.framework */; };
+		D96C1B5A18957A3D00123AFA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5918957A3D00123AFA /* StoreKit.framework */; };
+		D96C1B5C18957A4300123AFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +66,21 @@
 		D96C1B32189571DC00123AFA /* GidrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GidrTests-Info.plist"; sourceTree = "<group>"; };
 		D96C1B34189571DC00123AFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D96C1B36189571DC00123AFA /* GidrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GidrTests.m; sourceTree = "<group>"; };
+		D96C1B401895746700123AFA /* GidrEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventViewController.h; sourceTree = "<group>"; };
+		D96C1B411895746700123AFA /* GidrEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventViewController.m; sourceTree = "<group>"; };
+		D96C1B431895750C00123AFA /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
+		D96C1B441895750C00123AFA /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
+		D96C1B471895792E00123AFA /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
+		D96C1B491895796F00123AFA /* magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnify.png; sourceTree = "<group>"; };
+		D96C1B4B189579D100123AFA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D96C1B4D18957A0400123AFA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D96C1B4F18957A0D00123AFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D96C1B5118957A2100123AFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D96C1B5318957A2900123AFA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D96C1B5518957A3200123AFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D96C1B5718957A3800123AFA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D96C1B5918957A3D00123AFA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +88,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96C1B5C18957A4300123AFA /* SystemConfiguration.framework in Frameworks */,
+				D96C1B5A18957A3D00123AFA /* StoreKit.framework in Frameworks */,
+				D96C1B5818957A3800123AFA /* Security.framework in Frameworks */,
+				D96C1B5618957A3200123AFA /* QuartzCore.framework in Frameworks */,
+				D96C1B5418957A2900123AFA /* MobileCoreServices.framework in Frameworks */,
+				D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */,
 				D96C1B0E189571DC00123AFA /* CoreGraphics.framework in Frameworks */,
+				D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */,
+				D96C1B4E18957A0400123AFA /* AudioToolbox.framework in Frameworks */,
 				D96C1B10189571DC00123AFA /* UIKit.framework in Frameworks */,
+				D96C1B4C189579D100123AFA /* Parse.framework in Frameworks */,
 				D96C1B0C189571DC00123AFA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +119,7 @@
 		D96C1AFF189571DC00123AFA = {
 			isa = PBXGroup;
 			children = (
+				D96C1B461895792100123AFA /* Images */,
 				D96C1B11189571DC00123AFA /* Gidr */,
 				D96C1B30189571DC00123AFA /* GidrTests */,
 				D96C1B0A189571DC00123AFA /* Frameworks */,
@@ -101,6 +139,15 @@
 		D96C1B0A189571DC00123AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */,
+				D96C1B5918957A3D00123AFA /* StoreKit.framework */,
+				D96C1B5718957A3800123AFA /* Security.framework */,
+				D96C1B5518957A3200123AFA /* QuartzCore.framework */,
+				D96C1B5318957A2900123AFA /* MobileCoreServices.framework */,
+				D96C1B5118957A2100123AFA /* libz.dylib */,
+				D96C1B4F18957A0D00123AFA /* CFNetwork.framework */,
+				D96C1B4D18957A0400123AFA /* AudioToolbox.framework */,
+				D96C1B4B189579D100123AFA /* Parse.framework */,
 				D96C1B0B189571DC00123AFA /* Foundation.framework */,
 				D96C1B0D189571DC00123AFA /* CoreGraphics.framework */,
 				D96C1B0F189571DC00123AFA /* UIKit.framework */,
@@ -115,6 +162,10 @@
 				D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */,
 				D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */,
 				D96C1B1D189571DC00123AFA /* Main.storyboard */,
+				D96C1B431895750C00123AFA /* GidrEvent.h */,
+				D96C1B441895750C00123AFA /* GidrEvent.m */,
+				D96C1B401895746700123AFA /* GidrEventViewController.h */,
+				D96C1B411895746700123AFA /* GidrEventViewController.m */,
 				D96C1B20189571DC00123AFA /* GidrViewController.h */,
 				D96C1B21189571DC00123AFA /* GidrViewController.m */,
 				D96C1B23189571DC00123AFA /* Images.xcassets */,
@@ -150,6 +201,15 @@
 				D96C1B33189571DC00123AFA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D96C1B461895792100123AFA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D96C1B491895796F00123AFA /* magnify.png */,
+				D96C1B471895792E00123AFA /* radar.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96C1B481895792E00123AFA /* radar.png in Resources */,
 				D96C1B24189571DC00123AFA /* Images.xcassets in Resources */,
 				D96C1B16189571DC00123AFA /* InfoPlist.strings in Resources */,
+				D96C1B4A1895796F00123AFA /* magnify.png in Resources */,
 				D96C1B1F189571DC00123AFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +314,9 @@
 			files = (
 				D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */,
 				D96C1B22189571DC00123AFA /* GidrViewController.m in Sources */,
+				D96C1B451895750C00123AFA /* GidrEvent.m in Sources */,
 				D96C1B18189571DC00123AFA /* main.m in Sources */,
+				D96C1B421895746700123AFA /* GidrEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +443,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
 				INFOPLIST_FILE = "Gidr/Gidr-Info.plist";
@@ -392,6 +460,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
 				INFOPLIST_FILE = "Gidr/Gidr-Info.plist";
