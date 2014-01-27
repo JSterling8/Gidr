@@ -8,6 +8,12 @@
 
 #import "GidrEvent.h"
 
+
 @implementation GidrEvent
+
+@dynamic name;
+@dynamic location;
+@dynamic id;
+@dynamic date;
 
 @end

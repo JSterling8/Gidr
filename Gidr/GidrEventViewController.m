@@ -30,44 +30,17 @@
             NSLog(@"Loaded %lu new events", loadedEvents.count);
             if (loadedEvents.count > 0) {
                 // New events found
-                NSMutableArray *newEvents = [NSMutableArray arrayWithCapacity:(_events.count + loadedEvents.count)];
-                [newEvents addObjectsFromArray:_events];
                 for (PFObject *loadedEvent in loadedEvents) {
-                    BOOL eventUpdated = false;
-                    GidrEvent *newEvent = [[GidrEvent alloc] init];
-                    newEvent.id = loadedEvent.objectId;
-                    newEvent.name = loadedEvent[@"name"];
-                    newEvent.location = loadedEvent[@"location"];
-                    newEvent.date = loadedEvent[@"date"];
-                    for (int i = 0; i < newEvents.count; i++) {
-                        GidrEvent *localEvent = [newEvents objectAtIndex:i];
-                        if ([localEvent.id isEqualToString:newEvent.id]) {
-                            // Update this object, rather than add it
-                            [newEvents removeObjectAtIndex:i];
-                            [newEvents addObject:newEvent];
-                            eventUpdated = true;
-                            NSLog(@"Updated event with name: %@", newEvent.name);
-                            // End the first for loop
-                            break;
-                        }
-                    }
-                    if (!eventUpdated) {
+                    // This causes a crash, because the context is off?
+                    GidrEvent* localEvent = [self getEventWithId:loadedEvent.objectId];
+                    if (localEvent != nil && [localEvent.id isEqualToString:loadedEvent.objectId]) {
+                        // Update this event, rather than add it
+                        [self updateEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
+                    } else {
                         // Event wasn't udpated, so add it
-                        [newEvents addObject:newEvent];
-                        NSLog(@"Added event with name: %@", newEvent.name);
+                        [self addEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
                     }
                 }
-                // Sort the events by ascending date order
-                NSArray *sortedEvents = [newEvents sortedArrayUsingComparator:^NSComparisonResult(GidrEvent *firstEvent, GidrEvent *secondEvent) {
-                    BOOL ascending = true;
-                    if (ascending) {
-                        return [firstEvent.date compare:secondEvent.date];
-                    } else {
-                        return [secondEvent.date compare:firstEvent.date];
-                    }
-                }];
-                _events = [sortedEvents mutableCopy];
-                [self.tableView reloadData];
             }
             [self.refreshControl endRefreshing];
             self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh Events"];
@@ -80,8 +53,123 @@
 
 - (void)refresh:(id)sender
 {
+    // Set the text to let the user know we're refreshing the events
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
+    // Load the events from Parse.com
+    // This also resets the title and stops the loading indicator
     [self loadEventsFromParse];
+}
+
+- (void)addEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
+{
+    NSLog(@"Adding an event");
+    // Create a new managed object
+    GidrEvent *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.context];
+    [newEvent setValue:id forKey:@"id"];
+    [newEvent setValue:name forKey:@"name"];
+    [newEvent setValue:location forKey:@"location"];
+    [newEvent setValue:date forKey:@"date"];
+
+    NSError *error;
+    // Save the object to persistent store
+    if (![self.context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    } else {
+        NSLog(@"Added event with name: %@", name);
+    }
+}
+
+- (GidrEvent*)getEventWithId:(NSString*)id
+{
+    // TODO: This should jsut fetch one results, not an array and then get the first result
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
+    NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
+    if (events.count == 1) {
+        return [events objectAtIndex:0];
+    } else {
+        return nil;
+    }
+}
+
+- (BOOL)updateEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
+    NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
+    if (events.count == 1) {
+        GidrEvent *event = [events objectAtIndex:0];
+        event.name = name;
+        event.location = location;
+        event.date = date;
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"Can't Update event with name: %@: %@ %@", name, error, [error localizedDescription]);
+            return false;
+        } else {
+            NSLog(@"Updated event with name: %@", name);
+            return true;
+        }
+        return true;
+    } else {
+        return false;
+    }
+}
+
+- (void)deleteEvent:(GidrEvent*)event
+{
+    NSString *name = event.name;
+    [self.context deleteObject:event];
+
+    NSError *error = nil;
+    if (![self.context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    } else {
+        NSLog(@"Deleted event with name: %@", name);
+    }
+}
+
+- (NSManagedObjectContext *)context
+{
+    if (_context != nil) {
+        return _context;
+    }
+    self.context = [(GidrAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    return _context;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+                                  ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:20];
+    _fetchedResultsController = [[NSFetchedResultsController alloc]
+                                 initWithFetchRequest:fetchRequest
+                                  managedObjectContext:self.context
+                                   sectionNameKeyPath:nil
+                                           cacheName:@"Event"];
+    _fetchedResultsController.delegate = self;
+    NSError *error;
+    [_fetchedResultsController performFetch:&error];
+    
+    return _fetchedResultsController;
+}
+
+- (void)deleteAllEvents
+{
+    NSArray *events = [self.fetchedResultsController fetchedObjects];
+    for (GidrEvent *event in events) {
+        [self deleteEvent:event];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -105,12 +193,15 @@
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh Events"];
     // Configure View Controller
     [self setRefreshControl:self.refreshControl];
+    // Delete all events
+//    [self deleteAllEvents];
     // Start the refreshing in another thread
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+    // Doing this on another thread leads to some... interesting UI quirks
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
         [self.refreshControl beginRefreshing];
         self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
         [self loadEventsFromParse];
-    });
+//    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,13 +215,22 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [[self.fetchedResultsController sections] count];
+//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return _events.count;
+    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *name = event.name;
+    NSString *location = event.location;
+    [cell.textLabel setText:name];
+    [cell.detailTextLabel setText:location];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,13 +238,64 @@
     static NSString *cellIdentifier = @"GidrEventCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    GidrEvent *event = [_events objectAtIndex:indexPath.row];
-    NSString *name = event.name;
-    NSString *location = event.location;
-    [cell.textLabel setText:name];
-    [cell.detailTextLabel setText:location];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+// The below are just copy/paste from methods that Apple provide
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller is about to start sending change notifications, so prepare the table view for updates.
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+
+    UITableView *tableView = self.tableView;
+
+    switch(type) {
+
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+
+    switch(type) {
+
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+    [self.tableView endUpdates];
 }
 
 /*

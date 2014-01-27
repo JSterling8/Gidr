@@ -8,7 +8,7 @@
         <scene sceneID="PX5-mO-BEK">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="oTK-br-l2Y" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uKw-KN-3aQ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

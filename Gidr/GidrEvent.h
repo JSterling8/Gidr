@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface GidrEvent : NSObject
 
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) NSDate *date;
+@interface GidrEvent : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * id;
+@property (nonatomic, retain) NSDate * date;
 
 @end
