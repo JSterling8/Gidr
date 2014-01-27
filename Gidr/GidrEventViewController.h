@@ -15,12 +15,8 @@
 
 @interface GidrEventViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-//@property (nonatomic, strong) NSMutableArray *events;
-@property (nonatomic, weak) id refreshController;
-@property (nonatomic, strong) NSDate* lastUpdate;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) UIManagedDocument *document;
 
 @end

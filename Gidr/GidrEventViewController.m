@@ -17,16 +17,20 @@
 - (void)loadEventsFromParse
 {
     PFQuery *query = [PFQuery queryWithClassName:@"GidrEvent"];
-    if (_lastUpdate != nil) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastUpdate = [userDefaults valueForKey:@"lastUpdate"];
+    NSLog(@"Last Updated: %@", lastUpdate);
+    if (lastUpdate != nil) {
         // An update has already occured, so only get new objects
-        [query whereKey:@"updatedAt" greaterThanOrEqualTo:_lastUpdate];
+        [query whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdate];
     }
     // Only get the events in the future
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *loadedEvents, NSError *error) {
         if (!error) {
             // The find succeeded
-            _lastUpdate = [NSDate date];
+            [userDefaults setValue:[NSDate date] forKey:@"lastUpdate"];
+            [userDefaults synchronize];
             NSLog(@"Loaded %lu new events", loadedEvents.count);
             if (loadedEvents.count > 0) {
                 // New events found
