@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GidrEvent.h"
 #import <Parse/Parse.h>
-#import <CoreData/CoreData.h>
-#import "AppDelegate.h"
-#import "GidrAppDelegate.h"
+#import "GidrEvent.h"
+#import "GidrEventsController.h"
 
 @interface GidrEventViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) NSManagedObjectContext *context;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

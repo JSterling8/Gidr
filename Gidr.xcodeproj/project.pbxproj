@@ -14,7 +14,6 @@
 		D96C1B18189571DC00123AFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B17189571DC00123AFA /* main.m */; };
 		D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */; };
 		D96C1B1F189571DC00123AFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B1D189571DC00123AFA /* Main.storyboard */; };
-		D96C1B22189571DC00123AFA /* GidrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B21189571DC00123AFA /* GidrViewController.m */; };
 		D96C1B24189571DC00123AFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B23189571DC00123AFA /* Images.xcassets */; };
 		D96C1B2B189571DC00123AFA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B2A189571DC00123AFA /* XCTest.framework */; };
 		D96C1B2C189571DC00123AFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0B189571DC00123AFA /* Foundation.framework */; };
@@ -36,6 +35,8 @@
 		D991DDB31895B6AE00BEBE47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D991DDB21895B6AE00BEBE47 /* CoreData.framework */; };
 		D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */; };
 		D991DDBC1895D20400BEBE47 /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D991DDBB1895D20400BEBE47 /* GidrEvent.m */; };
+		D9DE276118969726007859AF /* GidrSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE276018969726007859AF /* GidrSettingsViewController.m */; };
+		D9DE27641896A4DA007859AF /* GidrEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DE27631896A4DA007859AF /* GidrEventsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,6 @@
 		D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GidrAppDelegate.h; sourceTree = "<group>"; };
 		D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GidrAppDelegate.m; sourceTree = "<group>"; };
 		D96C1B1E189571DC00123AFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D96C1B20189571DC00123AFA /* GidrViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GidrViewController.h; sourceTree = "<group>"; };
-		D96C1B21189571DC00123AFA /* GidrViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GidrViewController.m; sourceTree = "<group>"; };
 		D96C1B23189571DC00123AFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D96C1B29189571DC00123AFA /* GidrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GidrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96C1B2A189571DC00123AFA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -85,6 +84,10 @@
 		D991DDB51895B6C200BEBE47 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D991DDBA1895D20400BEBE47 /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
 		D991DDBB1895D20400BEBE47 /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
+		D9DE275F18969726007859AF /* GidrSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsViewController.h; sourceTree = "<group>"; };
+		D9DE276018969726007859AF /* GidrSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsViewController.m; sourceTree = "<group>"; };
+		D9DE27621896A4DA007859AF /* GidrEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventsController.h; sourceTree = "<group>"; };
+		D9DE27631896A4DA007859AF /* GidrEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,16 +168,9 @@
 		D96C1B11189571DC00123AFA /* Gidr */ = {
 			isa = PBXGroup;
 			children = (
-				D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */,
-				D991DDBA1895D20400BEBE47 /* GidrEvent.h */,
-				D991DDBB1895D20400BEBE47 /* GidrEvent.m */,
-				D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */,
-				D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */,
-				D96C1B1D189571DC00123AFA /* Main.storyboard */,
-				D96C1B401895746700123AFA /* GidrEventViewController.h */,
-				D96C1B411895746700123AFA /* GidrEventViewController.m */,
-				D96C1B20189571DC00123AFA /* GidrViewController.h */,
-				D96C1B21189571DC00123AFA /* GidrViewController.m */,
+				D9DE27651896AF2A007859AF /* View */,
+				D9DE27661896AF9D007859AF /* Model */,
+				D9DE27671896AFAA007859AF /* Controller */,
 				D96C1B23189571DC00123AFA /* Images.xcassets */,
 				D96C1B12189571DC00123AFA /* Supporting Files */,
 			);
@@ -184,6 +180,8 @@
 		D96C1B12189571DC00123AFA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */,
+				D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */,
 				D96C1B13189571DC00123AFA /* Gidr-Info.plist */,
 				D96C1B14189571DC00123AFA /* InfoPlist.strings */,
 				D96C1B17189571DC00123AFA /* main.m */,
@@ -217,6 +215,37 @@
 				D96C1B471895792E00123AFA /* radar.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		D9DE27651896AF2A007859AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D96C1B1D189571DC00123AFA /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D9DE27661896AF9D007859AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */,
+				D991DDBA1895D20400BEBE47 /* GidrEvent.h */,
+				D991DDBB1895D20400BEBE47 /* GidrEvent.m */,
+				D9DE27621896A4DA007859AF /* GidrEventsController.h */,
+				D9DE27631896A4DA007859AF /* GidrEventsController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D9DE27671896AFAA007859AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9DE275F18969726007859AF /* GidrSettingsViewController.h */,
+				D9DE276018969726007859AF /* GidrSettingsViewController.m */,
+				D96C1B401895746700123AFA /* GidrEventViewController.h */,
+				D96C1B411895746700123AFA /* GidrEventViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +348,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DE27641896A4DA007859AF /* GidrEventsController.m in Sources */,
 				D991DDBC1895D20400BEBE47 /* GidrEvent.m in Sources */,
 				D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */,
-				D96C1B22189571DC00123AFA /* GidrViewController.m in Sources */,
+				D9DE276118969726007859AF /* GidrSettingsViewController.m in Sources */,
 				D96C1B18189571DC00123AFA /* main.m in Sources */,
 				D96C1B421895746700123AFA /* GidrEventViewController.m in Sources */,
 				D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */,
@@ -451,6 +481,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "Joseph Duffy";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Joseph Duffy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
@@ -468,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "Joseph Duffy";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",

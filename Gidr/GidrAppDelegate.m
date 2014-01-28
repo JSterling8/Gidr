@@ -11,18 +11,26 @@
 
 @implementation GidrAppDelegate
 
-- (NSManagedObjectContext *) managedObjectContext {
-    if (managedObjectContext != nil) {
-        return managedObjectContext;
-    }
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
-
-    return managedObjectContext;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [Parse setApplicationId:@"boAthkaIxW55UoUbseXVSzACg1FwQwCeZEvwD4Bi"
+                  clientKey:@"355Ag9TMkXj4DwYowhx7WjfUwfXjAA8HXWZ2zOmZ"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    // Override point for customization after application launch.
+    return YES;
 }
+
+//- (NSManagedObjectContext *) managedObjectContext {
+//    if (_managedObjectContext == nil) {
+//        NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+//        if (coordinator != nil) {
+//            managedObjectContext = [[NSManagedObjectContext alloc] init];
+//            [managedObjectContext setPersistentStoreCoordinator: coordinator];
+//        }
+//
+//    }
+//    return _managedObjectContext;
+//}
 
 - (NSManagedObjectModel *)managedObjectModel {
     if (managedObjectModel != nil) {
@@ -54,13 +62,41 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (NSManagedObjectContext *)context
 {
-    [Parse setApplicationId:@"boAthkaIxW55UoUbseXVSzACg1FwQwCeZEvwD4Bi"
-                  clientKey:@"355Ag9TMkXj4DwYowhx7WjfUwfXjAA8HXWZ2zOmZ"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    // Override point for customization after application launch.
-    return YES;
+    if (_context == nil) {
+        NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+        if (coordinator != nil) {
+            _context = [[NSManagedObjectContext alloc] init];
+           [_context setPersistentStoreCoordinator: coordinator];
+        }
+    }
+    return _context;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+                                                                     ascending:YES];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:20];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc]
+                                     initWithFetchRequest:fetchRequest
+                                     managedObjectContext:self.context
+                                     sectionNameKeyPath:nil
+                                     cacheName:@"Event"];
+    _fetchedResultsController.delegate = self;
+    NSError *error;
+    [_fetchedResultsController performFetch:&error];
+
+    return _fetchedResultsController;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
