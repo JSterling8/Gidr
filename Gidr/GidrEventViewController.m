@@ -14,6 +14,40 @@
 
 @implementation GidrEventViewController
 
+- (void)viewDidLoad
+{
+    self.tableView.dataSource = self;
+
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    UIColor *blueColor = [UIColor colorWithRed:42.0/255.0 green:117/255.0 blue:163/255.0 alpha:1.0];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        // iOS 7.0+
+        // This will set the navigation and top bar to be the same colour and be all iOS7-y
+        self.navigationController.navigationBar.barTintColor = blueColor;
+        self.navigationController.navigationBar.translucent = NO;
+    } else {
+        // iOS < 7.0
+        // Just sets the navigation bar, which we might not want to do?
+        self.navigationController.navigationBar.tintColor = blueColor;
+    }
+
+    [super viewDidLoad];
+
+    // Configure Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh Events"];
+    // Configure View Controller
+    [self setRefreshControl:self.refreshControl];
+    // Start the refreshing in another thread
+    // Doing this on another thread leads to some... interesting UI quirks
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
+    [self.refreshControl beginRefreshing];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
+    [self loadEventsFromParse];
+    //    });
+}
+
 - (void)loadEventsFromParse
 {
     PFQuery *query = [PFQuery queryWithClassName:@"GidrEvent"];
@@ -31,7 +65,7 @@
             // The find succeeded
             [userDefaults setValue:[NSDate date] forKey:@"lastUpdate"];
             [userDefaults synchronize];
-            NSLog(@"Loaded %lu new events", loadedEvents.count);
+            NSLog(@"Loaded %lu new events", (unsigned long)loadedEvents.count);
             if (loadedEvents.count > 0) {
                 // New events found
                 for (PFObject *loadedEvent in loadedEvents) {
@@ -63,6 +97,10 @@
     // This also resets the title and stops the loading indicator
     [self loadEventsFromParse];
 }
+
+/*
+ * These methods shouldn't be in this file!?
+ */
 
 - (void)addEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
 {
@@ -120,6 +158,14 @@
     }
 }
 
+- (void)deleteAllEvents
+{
+    NSArray *events = [self.fetchedResultsController fetchedObjects];
+    for (GidrEvent *event in events) {
+        [self deleteEvent:event];
+    }
+}
+
 - (void)deleteEvent:(GidrEvent*)event
 {
     NSString *name = event.name;
@@ -139,7 +185,7 @@
     if (_context != nil) {
         return _context;
     }
-    self.context = [(GidrAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    _context = [(GidrAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     return _context;
 }
 
@@ -168,13 +214,9 @@
     return _fetchedResultsController;
 }
 
-- (void)deleteAllEvents
-{
-    NSArray *events = [self.fetchedResultsController fetchedObjects];
-    for (GidrEvent *event in events) {
-        [self deleteEvent:event];
-    }
-}
+/*
+ * Rest of methods should be in this file
+ */
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -183,29 +225,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    self.tableView.dataSource = self;
-
-    [super viewDidLoad];
-
-    // Configure Refresh Control
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull To Refresh Events"];
-    // Configure View Controller
-    [self setRefreshControl:self.refreshControl];
-    // Delete all events
-//    [self deleteAllEvents];
-    // Start the refreshing in another thread
-    // Doing this on another thread leads to some... interesting UI quirks
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(void) {
-        [self.refreshControl beginRefreshing];
-        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
-        [self loadEventsFromParse];
-//    });
 }
 
 - (void)didReceiveMemoryWarning

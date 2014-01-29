@@ -87,24 +87,6 @@
             </objects>
             <point key="canvasLocation" x="278" y="1612"/>
         </scene>
-        <!--Gidr View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="GidrViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hE2-Hz-5ur"/>
-                        <viewControllerLayoutGuide type="bottom" id="J7U-Bx-lTa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-746" y="1294"/>
-        </scene>
         <!--Navigation Controller - Discover-->
         <scene sceneID="y8N-Xo-Wcd">
             <objects>
