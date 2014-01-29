@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <CoreData/CoreData.h>source
 
 
 @interface GidrEvent : NSManagedObject
