@@ -24,7 +24,7 @@
         // iOS 7.0+
         // This will set the navigation and top bar to be the same colour and be all iOS7-y
         self.navigationController.navigationBar.barTintColor = blueColor;
-        self.navigationController.navigationBar.translucent = NO;
+        self.navigationController.navigationBar.translucent = YES;
     } else {
         // iOS < 7.0
         // Just sets the navigation bar, which we might not want to do?
