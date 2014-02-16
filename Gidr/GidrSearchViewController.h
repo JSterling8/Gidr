@@ -10,4 +10,6 @@
 
 @interface GidrSearchViewController : UIViewController
 
+- (IBAction)searchButtonPressed:(UIButton *)sender;
+
 @end

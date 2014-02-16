@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "GidrAppDelegate.h"
 
-@interface GidrEventViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface GidrDiscoverViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSManagedObjectContext *context;

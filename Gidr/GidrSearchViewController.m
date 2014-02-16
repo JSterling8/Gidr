@@ -35,4 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)searchButtonPressed:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
+}
 @end

@@ -6,30 +6,17 @@
 //  Copyright (c) 2014 Gidr. All rights reserved.
 //
 
-#import "GidrEventViewController.h"
+#import "GidrDiscoverViewController.h"
 
-@interface GidrEventViewController ()
+@interface GidrDiscoverViewController ()
 
 @end
 
-@implementation GidrEventViewController
+@implementation GidrDiscoverViewController
 
 - (void)viewDidLoad
 {
     self.tableView.dataSource = self;
-
-    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
-    UIColor *blueColor = [UIColor colorWithRed:42.0/255.0 green:117/255.0 blue:163/255.0 alpha:1.0];
-    if ([[ver objectAtIndex:0] intValue] >= 7) {
-        // iOS 7.0+
-        // This will set the navigation and top bar to be the same colour and be all iOS7-y
-        self.navigationController.navigationBar.barTintColor = blueColor;
-        self.navigationController.navigationBar.translucent = YES;
-    } else {
-        // iOS < 7.0
-        // Just sets the navigation bar, which we might not want to do?
-        self.navigationController.navigationBar.tintColor = blueColor;
-    }
 
     [super viewDidLoad];
 
@@ -263,6 +250,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Perform the segue to the devent details view
+    [self performSegueWithIdentifier:@"EventViewSegue" sender:self];
 }
 
 // The below are just copy/paste from methods that Apple provide
