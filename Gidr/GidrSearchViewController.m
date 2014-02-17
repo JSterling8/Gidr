@@ -10,6 +10,10 @@
 
 @interface GidrSearchViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextField *searchStringTF;
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
 @end
 
 @implementation GidrSearchViewController
@@ -22,11 +26,19 @@
     }
     return self;
 }
+- (IBAction)buttonPush:(UIButton *)sender {
+    _testLabel.text = _searchStringTF.text;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.searchStringTF.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning

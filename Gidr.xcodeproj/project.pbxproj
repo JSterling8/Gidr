@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3BDE10218B24396001D826C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BDE10118B24396001D826C /* Parse.framework */; };
+		C3BDE10318B24396001D826C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BDE10118B24396001D826C /* Parse.framework */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
 		D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748618A7095900B39F14 /* GidrSearchViewController.m */; };
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
@@ -29,7 +31,6 @@
 		D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B411895746700123AFA /* GidrDiscoverViewController.m */; };
 		D96C1B481895792E00123AFA /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B471895792E00123AFA /* radar.png */; };
 		D96C1B4A1895796F00123AFA /* magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B491895796F00123AFA /* magnify.png */; };
-		D96C1B4C189579D100123AFA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4B189579D100123AFA /* Parse.framework */; };
 		D96C1B4E18957A0400123AFA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4D18957A0400123AFA /* AudioToolbox.framework */; };
 		D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4F18957A0D00123AFA /* CFNetwork.framework */; };
 		D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5118957A2100123AFA /* libz.dylib */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3BDE10118B24396001D826C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsTableControllerViewController.h; sourceTree = "<group>"; };
 		D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsTableControllerViewController.m; sourceTree = "<group>"; };
 		D90D748518A7095900B39F14 /* GidrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchViewController.h; sourceTree = "<group>"; };
@@ -85,7 +87,6 @@
 		D96C1B411895746700123AFA /* GidrDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrDiscoverViewController.m; sourceTree = "<group>"; };
 		D96C1B471895792E00123AFA /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
 		D96C1B491895796F00123AFA /* magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnify.png; sourceTree = "<group>"; };
-		D96C1B4B189579D100123AFA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D96C1B4D18957A0400123AFA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D96C1B4F18957A0D00123AFA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D96C1B5118957A2100123AFA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -111,12 +112,12 @@
 				D96C1B5818957A3800123AFA /* Security.framework in Frameworks */,
 				D96C1B5618957A3200123AFA /* QuartzCore.framework in Frameworks */,
 				D96C1B5418957A2900123AFA /* MobileCoreServices.framework in Frameworks */,
+				C3BDE10218B24396001D826C /* Parse.framework in Frameworks */,
 				D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */,
 				D96C1B0E189571DC00123AFA /* CoreGraphics.framework in Frameworks */,
 				D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */,
 				D96C1B4E18957A0400123AFA /* AudioToolbox.framework in Frameworks */,
 				D96C1B10189571DC00123AFA /* UIKit.framework in Frameworks */,
-				D96C1B4C189579D100123AFA /* Parse.framework in Frameworks */,
 				D96C1B0C189571DC00123AFA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +128,7 @@
 			files = (
 				D96C1B2B189571DC00123AFA /* XCTest.framework in Frameworks */,
 				D96C1B2D189571DC00123AFA /* UIKit.framework in Frameworks */,
+				C3BDE10318B24396001D826C /* Parse.framework in Frameworks */,
 				D96C1B2C189571DC00123AFA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +202,7 @@
 		D96C1B0A189571DC00123AFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3BDE10118B24396001D826C /* Parse.framework */,
 				D991DDB21895B6AE00BEBE47 /* CoreData.framework */,
 				D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */,
 				D96C1B5918957A3D00123AFA /* StoreKit.framework */,
@@ -209,7 +212,6 @@
 				D96C1B5118957A2100123AFA /* libz.dylib */,
 				D96C1B4F18957A0D00123AFA /* CFNetwork.framework */,
 				D96C1B4D18957A0400123AFA /* AudioToolbox.framework */,
-				D96C1B4B189579D100123AFA /* Parse.framework */,
 				D96C1B0B189571DC00123AFA /* Foundation.framework */,
 				D96C1B0D189571DC00123AFA /* CoreGraphics.framework */,
 				D96C1B0F189571DC00123AFA /* UIKit.framework */,
@@ -521,6 +523,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
+					/Users/administrator/Desktop/Gidr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
@@ -541,6 +544,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
+					/Users/administrator/Desktop/Gidr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
@@ -560,6 +564,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/administrator/Desktop/Gidr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
@@ -583,6 +588,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/administrator/Desktop/Gidr,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
