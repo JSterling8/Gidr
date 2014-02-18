@@ -18,6 +18,8 @@
 
 @implementation GidrSearchViewController
 
+@synthesize searchString;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,11 +36,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    // self.searchStringTF.delegate = self;
+    self.searchStringTF.delegate = self;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    return NO;
+    [self.searchStringTF resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    self.searchString = [textField text];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,4 +58,6 @@
 - (IBAction)searchButtonPressed:(UIButton *)sender {
     [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
 }
+
+
 @end
