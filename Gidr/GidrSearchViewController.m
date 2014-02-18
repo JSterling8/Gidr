@@ -30,15 +30,15 @@
     _testLabel.text = _searchStringTF.text;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    return YES;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.searchStringTF.delegate = self;
+    // self.searchStringTF.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
