@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GidrSearchResultsTableViewController : UITableViewController
+@interface GidrSearchResultsTableViewController : UITableViewController {
+    NSString *searchString;
+    UILabel *searchLabel;
+}
+
+@property (nonatomic, retain) NSString *searchString;
+@property (nonatomic, retain) IBOutlet UILabel *searchLabel;
 
 @end

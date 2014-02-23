@@ -8,11 +8,16 @@
 
 #import "GidrSearchResultsTableViewController.h"
 
+
 @interface GidrSearchResultsTableViewController ()
 
 @end
 
 @implementation GidrSearchResultsTableViewController
+
+@synthesize searchString;
+@synthesize searchLabel;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +37,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.searchLabel setText:self.searchString];
+    self.navigationItem.title = searchString;
 }
 
 - (void)didReceiveMemoryWarning
