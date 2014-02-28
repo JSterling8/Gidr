@@ -7,8 +7,14 @@
 //
 
 #import "GidrSettingsTableControllerViewController.h"
+#import "GidrEventsMapper.h"
+#import "GidrEvent.h"
+#import "GidrAppDelegate.h"
 
 @interface GidrSettingsTableControllerViewController ()
+
+@property (nonatomic, weak) NSArray *tableSections;
+@property (nonatomic, strong) GidrEventsMapper *eventsMapper;
 
 @end
 
@@ -44,77 +50,99 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.tableSections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[self.tableSections objectAtIndex:section ] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    // Get the UITableViewCell object from the storyboard
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingsCell" forIndexPath:indexPath];
+    // Get the title for the requested row
+    NSString *rowTitle = [self getRowAtIndexPath:indexPath];
+    // Set the text for the reqested row to be the name of the row
+    cell.textLabel.text = rowTitle;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (section == 0) {
+        return @"Account Settings";
+    } else if (section == 1) {
+        return @"Local Data Settings";
+    }
+    return @"Unknown Column Name";
 }
 
- */
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *rowTitle = [self getRowAtIndexPath:indexPath];
+    if ([rowTitle isEqualToString:@"Delete local events"]) {
+        // Ask the user if they with to delete the local events
+        [[[UIAlertView alloc] initWithTitle:@"Delete all events?" message:@"Deleting all local events will wipe the events database and require all events to re-downloaded" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Coming Soon..." message:@"This option has not been implemented yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark Alert Viee delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([[alertView title] isEqualToString:@"Delete all events?"] && buttonIndex == 1) {
+        // Delete the stored local events
+        // Get the app delegate
+        GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
+        [request setEntity:entityDescription];
+        NSError *error;
+        NSArray *events = [delegate.managedObjectContext executeFetchRequest:request error:&error];
+        if (error == nil && events != nil) {
+            for (GidrEvent *event in events) {
+                [self.eventsMapper deleteEvent:event];
+            }
+            // Set the last update to never, since we now have no events! :(
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setValue:nil forKey:@"lastUpdate"];
+            [userDefaults synchronize];
+        }
+    }
+}
+
+#pragma mark Table view data methods
+
+- (NSString *)getRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *section = [self.tableSections objectAtIndex:indexPath.section];
+    return [section objectAtIndex:indexPath.row];
+}
+
+#pragma mark Setter and getter methods
+
+- (NSArray *)tableSections
+{
+    NSArray *userAccountSection = @[@"Logout", @"Delete Account"];
+    NSArray *localDataSection = @[@"Delete interests", @"Delete local events", @"Delete all local data"];
+    NSArray *sections = @[userAccountSection,
+                         localDataSection];
+    return sections;
+}
+
+- (GidrEventsMapper *)eventsMapper
+{
+    if (_eventsMapper == nil) {
+        _eventsMapper = [[GidrEventsMapper alloc] init];
+    }
+    return _eventsMapper;
+}
 
 @end

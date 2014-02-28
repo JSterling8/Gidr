@@ -9,50 +9,63 @@
 #import "GidrAppDelegate.h"
 #import <Parse/Parse.h>
 
+@interface GidrAppDelegate ()
+
+@property (nonatomic, strong, readwrite) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readwrite) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readwrite) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@end
+
 @implementation GidrAppDelegate
 
-- (NSManagedObjectContext *) managedObjectContext {
-    if (managedObjectContext != nil) {
-        return managedObjectContext;
-    }
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
+#pragma mark Core Data Methods
 
-    return managedObjectContext;
+- (NSManagedObjectContext *) managedObjectContext
+{
+    if (_managedObjectContext == nil) {
+        NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
+        if (coordinator != nil) {
+            _managedObjectContext = [[NSManagedObjectContext alloc] init];
+            [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+        }
+    }
+    return _managedObjectContext;
 }
 
-- (NSManagedObjectModel *)managedObjectModel {
-    if (managedObjectModel != nil) {
-        return managedObjectModel;
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel == nil) {
+        _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     }
-    managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-
-    return managedObjectModel;
+    return _managedObjectModel;
 }
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (persistentStoreCoordinator != nil) {
-        return persistentStoreCoordinator;
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator == nil) {
+        NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"GidrEvents.sqlite"]];
+        NSError *error = nil;
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+        // Allow for lightweight migartion, which allows for small additions/removals to the model to be performed automatically
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
+            NSLog(@"Error getting persistant store coordinator: %@, %@", error, [error localizedDescription]);
+        }
     }
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-                                               stringByAppendingPathComponent: @"GidrEvents.sqlite"]];
-    NSError *error = nil;
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
-                                  initWithManagedObjectModel:[self managedObjectModel]];
-    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                 configuration:nil URL:storeUrl options:nil error:&error]) {
-        /*Error for store creation should be handled in here*/
-    }
-
-    return persistentStoreCoordinator;
+    return _persistentStoreCoordinator;
 }
 
-- (NSString *)applicationDocumentsDirectory {
+/**
+ Gets the URL to the application's Documents directory
+ @return The URL for the application's Documents directory
+ */
+- (NSString *)applicationDocumentsDirectory
+{
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
+
+#pragma mark Application Event Methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

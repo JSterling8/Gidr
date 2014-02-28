@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GidrSettingsTableControllerViewController : UITableViewController
+@interface GidrSettingsTableControllerViewController : UITableViewController <UIAlertViewDelegate>
 
 @end
