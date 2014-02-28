@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C3BDE10218B24396001D826C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BDE10118B24396001D826C /* Parse.framework */; };
-		C3BDE10318B24396001D826C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3BDE10118B24396001D826C /* Parse.framework */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
 		D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748618A7095900B39F14 /* GidrSearchViewController.m */; };
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
@@ -44,6 +42,7 @@
 		D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531B218C0EEBB0011063F /* GidrEventsMapper.m */; };
 		D991DDB31895B6AE00BEBE47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D991DDB21895B6AE00BEBE47 /* CoreData.framework */; };
 		D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */; };
+		D9B0E95D18C109D7008A9435 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B0E95C18C109D7008A9435 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C3BDE10118B24396001D826C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsTableControllerViewController.h; sourceTree = "<group>"; };
 		D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsTableControllerViewController.m; sourceTree = "<group>"; };
 		D90D748518A7095900B39F14 /* GidrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchViewController.h; sourceTree = "<group>"; };
@@ -106,6 +104,7 @@
 		D97531B218C0EEBB0011063F /* GidrEventsMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventsMapper.m; sourceTree = "<group>"; };
 		D991DDB21895B6AE00BEBE47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D991DDB51895B6C200BEBE47 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D9B0E95C18C109D7008A9435 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +117,7 @@
 				D96C1B5818957A3800123AFA /* Security.framework in Frameworks */,
 				D96C1B5618957A3200123AFA /* QuartzCore.framework in Frameworks */,
 				D96C1B5418957A2900123AFA /* MobileCoreServices.framework in Frameworks */,
-				C3BDE10218B24396001D826C /* Parse.framework in Frameworks */,
+				D9B0E95D18C109D7008A9435 /* Parse.framework in Frameworks */,
 				D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */,
 				D96C1B0E189571DC00123AFA /* CoreGraphics.framework in Frameworks */,
 				D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */,
@@ -135,7 +134,6 @@
 			files = (
 				D96C1B2B189571DC00123AFA /* XCTest.framework in Frameworks */,
 				D96C1B2D189571DC00123AFA /* UIKit.framework in Frameworks */,
-				C3BDE10318B24396001D826C /* Parse.framework in Frameworks */,
 				D96C1B2C189571DC00123AFA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				D97531AC18C0ED6C0011063F /* StoreKit.framework */,
-				C3BDE10118B24396001D826C /* Parse.framework */,
+				D9B0E95C18C109D7008A9435 /* Parse.framework */,
 				D991DDB21895B6AE00BEBE47 /* CoreData.framework */,
 				D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */,
 				D96C1B5718957A3800123AFA /* Security.framework */,
@@ -540,8 +538,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
-					/Users/administrator/Desktop/Gidr,
+					Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
@@ -561,8 +558,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/JosephDuffy/Dropbox/Documents/Uni\\ Work/Year\\ 2/Team\\ Project/Xcode\\ Project/Gidr",
-					/Users/administrator/Desktop/Gidr,
+					Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gidr/Gidr-Prefix.pch";
