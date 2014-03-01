@@ -7,13 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GidrEvent.h"
+#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+#import "GidrAppDelegate.h"
 
-@interface GidrSearchResultsTableViewController : UITableViewController {
+@interface GidrSearchResultsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>{
+  
     NSString *searchString;
     UILabel *searchLabel;
 }
 
 @property (nonatomic, retain) NSString *searchString;
 @property (nonatomic, retain) IBOutlet UILabel *searchLabel;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
