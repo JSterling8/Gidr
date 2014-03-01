@@ -249,7 +249,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"GidrEventCell";
+    static NSString *cellIdentifier = @"GidrEventCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
