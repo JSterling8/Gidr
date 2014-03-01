@@ -282,6 +282,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6xp-uj-0Ta" kind="push" identifier="EventViewSegue" id="NLA-SX-xe7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -384,4 +387,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="NLA-SX-xe7"/>
+    </inferredMetricsTieBreakers>
 </document>
