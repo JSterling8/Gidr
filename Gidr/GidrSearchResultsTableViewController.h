@@ -3,6 +3,7 @@
 //  Gidr
 //
 //  Created by Joseph Duffy on 09/02/2014.
+//  Developed by Jonathan Sterling 09/02/2014 to date.
 //  Copyright (c) 2014 Gidr. All rights reserved.
 //
 
