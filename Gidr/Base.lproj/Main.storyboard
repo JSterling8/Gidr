@@ -189,6 +189,7 @@
                                 </state>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="nYu-BN-gx0" eventType="touchUpInside" id="qww-2j-hpQ"/>
+                                    <segue destination="Woh-Aj-0HR" kind="push" identifier="SearchResultsSegue" id="yla-ac-pD9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LC8-bf-kl1">
@@ -243,37 +244,36 @@
                         <outlet property="searchStringTF" destination="gbH-Cz-KEt" id="IhT-KN-kZz"/>
                         <outlet property="testButton" destination="LC8-bf-kl1" id="oEx-HS-TEA"/>
                         <outlet property="testLabel" destination="41E-S9-jPg" id="VXc-yj-gtS"/>
-                        <segue destination="kIz-uu-w9T" kind="push" identifier="SearchResultsSegue" id="ph9-6b-8Vx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8d3-h1-V1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230" y="486"/>
         </scene>
-        <!--Gidr Search Results Table View Controller - Search Results-->
-        <scene sceneID="qQQ-9t-1AR">
+        <!--Gidr Search Results Table View Controller-->
+        <scene sceneID="pY0-gR-MGf">
             <objects>
-                <tableViewController id="kIz-uu-w9T" customClass="GidrSearchResultsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2XU-ht-g7P">
+                <tableViewController id="Woh-Aj-0HR" customClass="GidrSearchResultsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ACJ-tA-i6I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GidrEventCell" textLabel="M0y-t2-7RV" detailTextLabel="MhS-fg-eJW" style="IBUITableViewCellStyleSubtitle" id="OT2-os-P0P">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GidrEventCell" textLabel="AmA-ll-giE" detailTextLabel="5kR-Zp-6cA" style="IBUITableViewCellStyleSubtitle" id="xyy-u2-HtO">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OT2-os-P0P">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xyy-u2-HtO" id="wSY-cj-hJX">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0y-t2-7RV">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AmA-ll-giE">
                                             <rect key="frame" x="15" y="3" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MhS-fg-eJW">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5kR-Zp-6cA">
                                             <rect key="frame" x="15" y="25" width="43" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -285,16 +285,15 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="kIz-uu-w9T" id="fHa-Or-cyd"/>
-                            <outlet property="delegate" destination="kIz-uu-w9T" id="MLh-CY-J3g"/>
+                            <outlet property="dataSource" destination="Woh-Aj-0HR" id="ibu-wH-Fce"/>
+                            <outlet property="delegate" destination="Woh-Aj-0HR" id="5gf-vY-Ybu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search Results" id="wL4-3w-apb"/>
-                    <connections>
-                        <outlet property="tableView" destination="2XU-ht-g7P" id="ETX-fH-VHy"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="5tg-a9-x1c">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fF5-YX-R5w"/>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VEA-Nd-Ec3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5B-ij-VZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="375" y="486"/>
         </scene>
