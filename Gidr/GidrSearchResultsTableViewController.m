@@ -20,6 +20,12 @@
 @synthesize searchString;
 @synthesize searchLabel;
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.searchLabel setText:self.searchString];
+    self.navigationItem.title = searchString;
+}
+
 - (void)viewDidLoad
 {
     self.tableView.dataSource = self;
@@ -42,11 +48,7 @@
 
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.searchLabel setText:self.searchString];
-    self.navigationItem.title = searchString;
-}
+
 
 
 - (void)loadEventsFromParse
