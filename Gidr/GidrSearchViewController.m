@@ -57,14 +57,22 @@
 }
 
 - (IBAction)searchButtonPressed:(UIButton *)sender {
-    //[self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
+    [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
+
     
-    
-    GidrSearchResultsTableViewController *tempView = [[GidrSearchResultsTableViewController alloc] init];
-    [tempView setSearchString:self.searchString];
-    
-    [self.navigationController pushViewController:tempView animated:YES];
-    
+//    GidrSearchResultsTableViewController *tempView = [[GidrSearchResultsTableViewController alloc] init];
+//    [tempView setSearchString:self.searchString];
+//    
+//    [self.navigationController pushViewController:tempView animated:YES];
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
+        GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
+        results.searchString = self.searchString;
+    }
 }
 
 

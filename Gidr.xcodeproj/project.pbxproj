@@ -144,10 +144,10 @@
 		D90D748218A708C200B39F14 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D97531A918C0EC000011063F /* GidrEventViewController.h */,
-				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
 				D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */,
 				D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */,
+				D97531A918C0EC000011063F /* GidrEventViewController.h */,
+				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
 				D90D748518A7095900B39F14 /* GidrSearchViewController.h */,
 				D90D748618A7095900B39F14 /* GidrSearchViewController.m */,
 				D90D748818A7097C00B39F14 /* GidrSearchResultsTableViewController.h */,
