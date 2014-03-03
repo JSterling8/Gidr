@@ -44,9 +44,11 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, scrollViewHeight)];
     if (self.hasFinishedSetup) {
         self.title = @"Modify Interests";
+        self.cancelButton.title = @"Save";
     } else {
         [self setInitialInterestValues];
         self.title = @"Welcome To Gidr";
+        self.cancelButton.title = @"Done";
         self.welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
         self.welcomeLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.welcomeLabel.numberOfLines = 5;
