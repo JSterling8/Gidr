@@ -73,7 +73,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"Account Settings";
+        return @"Interests";
     } else if (section == 1) {
         return @"Local Data Settings";
     }
@@ -87,6 +87,8 @@
     if ([rowTitle isEqualToString:@"Delete local events"]) {
         // Ask the user if they with to delete the local events
         [[[UIAlertView alloc] initWithTitle:@"Delete all events?" message:@"Deleting all local events will wipe the events database and require all events to re-downloaded" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
+    } else if ([rowTitle isEqualToString:@"Modify Interests"]) {
+        [self performSegueWithIdentifier:@"SettingsToInterestsView" sender:self];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Coming Soon..." message:@"This option has not been implemented yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
@@ -130,7 +132,7 @@
 
 - (NSArray *)tableSections
 {
-    NSArray *userAccountSection = @[@"Logout", @"Delete Account"];
+    NSArray *userAccountSection = @[@"Modify Interests"];
     NSArray *localDataSection = @[@"Delete interests", @"Delete local events", @"Delete all local data"];
     NSArray *sections = @[userAccountSection,
                          localDataSection];

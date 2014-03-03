@@ -12,6 +12,8 @@
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
 		D93C2DC218991FCA007A6F6A /* SpashscreenMockup.png in Resources */ = {isa = PBXBuildFile; fileRef = D93C2DC018991FCA007A6F6A /* SpashscreenMockup.png */; };
 		D93C2DC318991FCA007A6F6A /* SpashscreenMockup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D93C2DC118991FCA007A6F6A /* SpashscreenMockup@2x.png */; };
+		D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9517FC918C3D00500753FFD /* GidrTabBarViewController.m */; };
+		D9517FCD18C3D06A00753FFD /* GidrInitialSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */; };
 		D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */; };
 		D96C1B0C189571DC00123AFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0B189571DC00123AFA /* Foundation.framework */; };
 		D96C1B0E189571DC00123AFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0D189571DC00123AFA /* CoreGraphics.framework */; };
@@ -65,6 +67,10 @@
 		D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		D93C2DC018991FCA007A6F6A /* SpashscreenMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpashscreenMockup.png; sourceTree = "<group>"; };
 		D93C2DC118991FCA007A6F6A /* SpashscreenMockup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpashscreenMockup@2x.png"; sourceTree = "<group>"; };
+		D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrTabBarViewController.h; sourceTree = "<group>"; };
+		D9517FC918C3D00500753FFD /* GidrTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrTabBarViewController.m; sourceTree = "<group>"; };
+		D9517FCB18C3D06A00753FFD /* GidrInitialSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrInitialSetupViewController.h; sourceTree = "<group>"; };
+		D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrInitialSetupViewController.m; sourceTree = "<group>"; };
 		D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrNavigationController.h; sourceTree = "<group>"; };
 		D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrNavigationController.m; sourceTree = "<group>"; };
 		D96C1B08189571DC00123AFA /* Gidr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gidr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,14 +150,11 @@
 		D90D748218A708C200B39F14 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */,
-				D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */,
+				D9517FCE18C3D0BE00753FFD /* Initial Setup */,
+				D9517FD018C3D0DF00753FFD /* Base Views */,
+				D9517FCF18C3D0CD00753FFD /* Search */,
 				D97531A918C0EC000011063F /* GidrEventViewController.h */,
 				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
-				D90D748518A7095900B39F14 /* GidrSearchViewController.h */,
-				D90D748618A7095900B39F14 /* GidrSearchViewController.m */,
-				D90D748818A7097C00B39F14 /* GidrSearchResultsTableViewController.h */,
-				D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */,
 				D96C1B401895746700123AFA /* GidrDiscoverViewController.h */,
 				D96C1B411895746700123AFA /* GidrDiscoverViewController.m */,
 				D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */,
@@ -189,6 +192,37 @@
 				D93C2DC118991FCA007A6F6A /* SpashscreenMockup@2x.png */,
 			);
 			name = "Splash Images";
+			sourceTree = "<group>";
+		};
+		D9517FCE18C3D0BE00753FFD /* Initial Setup */ = {
+			isa = PBXGroup;
+			children = (
+				D9517FCB18C3D06A00753FFD /* GidrInitialSetupViewController.h */,
+				D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */,
+			);
+			name = "Initial Setup";
+			sourceTree = "<group>";
+		};
+		D9517FCF18C3D0CD00753FFD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D90D748518A7095900B39F14 /* GidrSearchViewController.h */,
+				D90D748618A7095900B39F14 /* GidrSearchViewController.m */,
+				D90D748818A7097C00B39F14 /* GidrSearchResultsTableViewController.h */,
+				D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		D9517FD018C3D0DF00753FFD /* Base Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */,
+				D9517FC918C3D00500753FFD /* GidrTabBarViewController.m */,
+				D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */,
+				D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */,
+			);
+			name = "Base Views";
 			sourceTree = "<group>";
 		};
 		D96C1AFF189571DC00123AFA = {
@@ -396,6 +430,7 @@
 				D97531AB18C0EC000011063F /* GidrEventViewController.m in Sources */,
 				D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */,
 				D97531B018C0EE9B0011063F /* GidrEvent.m in Sources */,
+				D9517FCD18C3D06A00753FFD /* GidrInitialSetupViewController.m in Sources */,
 				D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */,
 				D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */,
 				D96C1B18189571DC00123AFA /* main.m in Sources */,
@@ -403,6 +438,7 @@
 				D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */,
 				D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */,
 				D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */,
+				D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */,
 				D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
