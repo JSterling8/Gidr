@@ -61,13 +61,6 @@
 
 - (IBAction)searchButtonPressed:(UIButton *)sender {
     [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
-
-    
-//    GidrSearchResultsTableViewController *tempView = [[GidrSearchResultsTableViewController alloc] init];
-//    [tempView setSearchString:self.searchString];
-//    
-//    [self.navigationController pushViewController:tempView animated:YES];
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
