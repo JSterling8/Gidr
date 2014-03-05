@@ -69,6 +69,10 @@
     }
     // Only get the events in the future
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
+    
+    #pragma mark To do: Make this work.
+    //[query whereKey:@"name" containsString:@"Party"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *loadedEvents, NSError *error) {
         if (!error) {
             // The find succeeded
@@ -133,7 +137,8 @@
 {
     // TODO: This should jsut fetch one results, not an array and then get the first result
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
+    // fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchString];
     NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
     if (events.count == 1) {
         return [events objectAtIndex:0];
@@ -186,6 +191,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                      ascending:YES];
+
     fetchRequest.sortDescriptors = @[sortDescriptor];
     [fetchRequest setEntity:entity];
     [fetchRequest setFetchBatchSize:20];

@@ -282,9 +282,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="6xp-uj-0Ta" kind="push" identifier="EventViewSegue" id="NLA-SX-xe7"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -295,6 +292,9 @@
                     <navigationItem key="navigationItem" id="5tg-a9-x1c">
                         <barButtonItem key="backBarButtonItem" title="Back" id="fF5-YX-R5w"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="6xp-uj-0Ta" kind="push" identifier="EventViewSegue" id="DQM-g4-nwY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5B-ij-VZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,7 +436,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="DQM-g4-nwY"/>
         <segue reference="xmc-Dn-s0O"/>
-        <segue reference="9wt-yN-p62"/>
     </inferredMetricsTieBreakers>
 </document>
