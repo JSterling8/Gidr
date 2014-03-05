@@ -8,12 +8,15 @@
 
 #import "GidrSearchViewController.h"
 #import "GidrSearchResultsTableViewController.h"
+#import "GidrEventsMapper.h"
 
 @interface GidrSearchViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextField *searchStringTF;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
+@property (nonatomic, strong) GidrEventsMapper *eventsMapper;
+
 
 @end
 
@@ -70,11 +73,37 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
+        // Delete the stored local events
+        // Get the app delegate
+        /*GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
+        [request setEntity:entityDescription];
+        NSError *error;
+        NSArray *events = [delegate.managedObjectContext executeFetchRequest:request error:&error];
+        if (error == nil && events != nil) {
+            for (GidrEvent *event in events) {
+                [self.eventsMapper deleteEvent:event];
+            }
+            // Set the last update to never, since we now have no events! :(
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setValue:nil forKey:@"lastUpdate"];
+            [userDefaults synchronize];
+        }*/
+        
+        
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchString = self.searchString;
     }
 }
 
+- (GidrEventsMapper *)eventsMapper
+{
+    if (_eventsMapper == nil) {
+        _eventsMapper = [[GidrEventsMapper alloc] init];
+    }
+    return _eventsMapper;
+}
 
 
 @end

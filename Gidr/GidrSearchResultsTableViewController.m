@@ -9,10 +9,14 @@
 
 #import "GidrSearchResultsTableViewController.h"
 #import "GidrEventViewController.h"
+#import "GidrEventsMapper.h"
+
 
 @interface GidrSearchResultsTableViewController ()
 
 @property (nonatomic, strong) GidrEvent *selectedEvent;
+@property (nonatomic, strong) GidrEventsMapper *eventsMapper;
+
 
 @end
 
@@ -30,7 +34,6 @@
 - (void)viewDidLoad
 {
     self.tableView.dataSource = self;
-    // [self.tableView registerClass:[UITableView class] forCellReuseIdentifier:@"GidrSearchResultCell"];
     
     [super viewDidLoad];
     
@@ -62,14 +65,11 @@
     if (lastUpdate != nil) {
         // An update has already occured, so only get new objects
         [query whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdate];
-        
-        // Can't get any events to load.  Testing if it's this:
-        //[query whereKey:@"updatedAt" lessThanOrEqualTo:lastUpdate];
-        // ... Nope
     }
+    
     // Only get the events in the future
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
-    
+
     #pragma mark To do: Make this work.
     //[query whereKey:@"name" containsString:@"Party"];
     
@@ -123,7 +123,6 @@
     [newEvent setValue:name forKey:@"name"];
     [newEvent setValue:location forKey:@"location"];
     [newEvent setValue:date forKey:@"date"];
-    
     NSError *error;
     // Save the object to persistent store
     if (![self.context save:&error]) {
@@ -137,8 +136,7 @@
 {
     // TODO: This should jsut fetch one results, not an array and then get the first result
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    // fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchString];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
     NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
     if (events.count == 1) {
         return [events objectAtIndex:0];
@@ -174,10 +172,9 @@
 
 - (NSManagedObjectContext *)context
 {
-    if (_context != nil) {
-        return _context;
+    if (_context == nil){
+        _context = [(GidrAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     }
-    _context = [(GidrAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     return _context;
 }
 
@@ -200,6 +197,7 @@
                                  managedObjectContext:self.context
                                  sectionNameKeyPath:nil
                                  cacheName:@"Event"];
+    
     _fetchedResultsController.delegate = self;
     NSError *error;
     [_fetchedResultsController performFetch:&error];
@@ -364,6 +362,17 @@
  return YES;
  }
  */
+
+
+- (GidrEventsMapper *)eventsMapper
+{
+    if (_eventsMapper == nil) {
+        _eventsMapper = [[GidrEventsMapper alloc] init];
+    }
+    return _eventsMapper;
+}
+
+
 
 #pragma mark - Navigation
 

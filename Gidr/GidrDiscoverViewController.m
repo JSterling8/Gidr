@@ -50,6 +50,7 @@
     }
     // Only get the events in the future
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *loadedEvents, NSError *error) {
         if (!error) {
             // The find succeeded
