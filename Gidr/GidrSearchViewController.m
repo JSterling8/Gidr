@@ -73,9 +73,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
+        // BEGIN Sledgehammer
         // Delete the stored local events
         // Get the app delegate
-        /*GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
+        GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
         [request setEntity:entityDescription];
@@ -89,7 +90,8 @@
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setValue:nil forKey:@"lastUpdate"];
             [userDefaults synchronize];
-        }*/
+        }
+        // END Sledgehammer
         
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;

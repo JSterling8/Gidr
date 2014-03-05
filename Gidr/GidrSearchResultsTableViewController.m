@@ -71,7 +71,7 @@
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
 
     #pragma mark To do: Make this work.
-    //[query whereKey:@"name" containsString:@"Party"];
+    [query whereKey:@"name" containsString:searchString];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *loadedEvents, NSError *error) {
         if (!error) {
