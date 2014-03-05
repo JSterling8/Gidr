@@ -54,7 +54,8 @@
         self.welcomeLabel.numberOfLines = 5;
         // This breaks things, but should help with dynamic text?
 //        [self.welcomeLabel sizeToFit];
-        self.welcomeLabel.text = @"Welcome to Gidr. Please set how strongly you are interested in the following categories. By default, they are all of equal importance.";
+        self.welcomeLabel.text = @"Please set how strongly you are interested in the following categories. By default, they are all of equal importance.";
+        self.welcomeLabel.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:self.welcomeLabel];
         height += self.welcomeLabel.bounds.size.height;
     }
