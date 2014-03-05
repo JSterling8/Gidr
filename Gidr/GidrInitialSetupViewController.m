@@ -63,6 +63,7 @@
         // Create the label for the slider
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, height, self.view.bounds.size.width, 30)];
         label.text = category;
+        [label setTextAlignment:NSTextAlignmentCenter];
         [scrollView addSubview:label];
         height += label.bounds.size.height;
         // Create the slider
