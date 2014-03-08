@@ -10,6 +10,7 @@
 #import "GidrEventsMapper.h"
 #import "GidrEvent.h"
 #import "GidrAppDelegate.h"
+#import "GidrInitialSetupViewController.h"
 
 @interface GidrSettingsTableControllerViewController ()
 
@@ -55,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.tableSections objectAtIndex:section ] count];
+    return [[self.tableSections objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,6 +77,8 @@
         return @"Interests";
     } else if (section == 1) {
         return @"Local Data Settings";
+    } else if (section == 2) {
+        return @"Developer Options";
     }
     return @"Unknown Column Name";
 }
@@ -89,13 +92,15 @@
         [[[UIAlertView alloc] initWithTitle:@"Delete all events?" message:@"Deleting all local events will wipe the events database and require all events to re-downloaded" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
     } else if ([rowTitle isEqualToString:@"Modify Interests"]) {
         [self performSegueWithIdentifier:@"SettingsToInterestsView" sender:self];
+    } else if ([rowTitle isEqualToString:@"Reset Installation"]) {
+        [[[UIAlertView alloc] initWithTitle:@"Reset Installation?" message:@"Resetting the installation will wipe all interests and delete all local events from the device" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Coming Soon..." message:@"This option has not been implemented yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark Alert Viee delegate methods
+#pragma mark Alert View delegate methods
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -117,6 +122,33 @@
             [userDefaults setValue:nil forKey:@"lastUpdate"];
             [userDefaults synchronize];
         }
+    } else if ([[alertView title] isEqualToString:@"Reset Installation?"] && buttonIndex == 1) {
+        // Delete the stored local events
+        // Get the app delegate
+        GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
+        [request setEntity:entityDescription];
+        NSError *error;
+        NSArray *events = [delegate.managedObjectContext executeFetchRequest:request error:&error];
+        if (error == nil && events != nil) {
+            for (GidrEvent *event in events) {
+                [self.eventsMapper deleteEvent:event];
+            }
+            // Set the last update to never, since we now have no events! :(
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setValue:nil forKey:@"lastUpdate"];
+            [userDefaults synchronize];
+        }
+        // Also delete all the user's interests
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        for (NSString *category in [GidrInitialSetupViewController categories]) {
+            [userDefaults removeObjectForKey:category];
+        }
+        // Set the initial setup as completed
+        [userDefaults removeObjectForKey:@"hasSeenSetup"];
+        [userDefaults synchronize];
+        [[[UIAlertView alloc] initWithTitle:@"Installation Reset" message:@"Your installation has been reset. Please fully close the app by removing it from the multitasking screen (double click the home screen)" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
 }
 
@@ -134,9 +166,13 @@
 {
     NSArray *userAccountSection = @[@"Modify Interests"];
     NSArray *localDataSection = @[@"Delete interests", @"Delete local events", @"Delete all local data"];
-    NSArray *sections = @[userAccountSection,
-                         localDataSection];
-    return sections;
+    NSArray *developerOptions = @[@"Reset Installation"];
+    NSMutableArray *sections = [@[userAccountSection,
+                         localDataSection] mutableCopy];
+#ifdef DEBUG
+    [sections addObject:developerOptions];
+#endif
+    return [NSArray arrayWithArray:sections];
 }
 
 - (GidrEventsMapper *)eventsMapper

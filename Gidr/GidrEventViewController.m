@@ -10,6 +10,7 @@
 
 @interface GidrEventViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @end
 
@@ -28,7 +29,20 @@
 {
     [super viewDidLoad];
     [self.eventNameLabel setText:self.event.name];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                     target:self
+                                     action:@selector(methodThatShowsSheet)];
+    self.navigationItem.rightBarButtonItem = actionButton;
 	// Do any additional setup after loading the view.
+}
+
+- (void)methodThatShowsSheet
+{
+    NSArray *itemsToShare = @[@"Check out this awesome event I found!", [NSURL URLWithString:@"http://placeholder.url"]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

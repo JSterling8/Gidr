@@ -17,6 +17,14 @@
 
 @implementation GidrEventsMapper
 
+/**
+ Adds a new event to the Core Data store
+ @param id The unique id for the new event
+ @param name The display name for the event
+ @param location The location for the event
+ @param date The date of the event
+ @return The newly created GidrEvent object, or nil if the event failed to be created
+ */
 - (GidrEvent *)addEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date
 {
     // Create a new managed object
@@ -35,6 +43,11 @@
     return newEvent;
 }
 
+/**
+ Get the event from the Core Data store that has the provided id
+ @param id The ID of the event to retrieve
+ @return The event object retrieved from Core Data, or nil if no event in found with the provided id
+ */
 - (GidrEvent*)getEventWithId:(NSString*)id
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
@@ -47,6 +60,14 @@
     return [events lastObject];
 }
 
+/**
+ Update an event in the Core Data store
+ @param id The unique ID of the event to update
+ @param name The new name for the event
+ @param location The new location for the event
+ @param date The new data for the event
+ @return YES on success, otherwise NO
+ */
 - (BOOL)updateEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date;
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
@@ -61,9 +82,6 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error updating event with name: %@: %@ %@", name, error, [error localizedDescription]);
             return false;
-        } else {
-            NSLog(@"Updated event with name: %@", name);
-            return true;
         }
         return true;
     } else {
@@ -71,6 +89,11 @@
     }
 }
 
+/**
+ Delete the provided event from the Core Data store
+ @param event The event to be deleted
+ @return YES on success, otherwise NO
+ */
 - (BOOL)deleteEvent:(GidrEvent*)event
 {
     NSString *name = event.name;
@@ -80,8 +103,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error updating event with name: %@: %@ %@", name, error, [error localizedDescription]);
         return NO;
-    } else {
-        NSLog(@"Deleted event with name: %@", name);
     }
     return YES;
 }

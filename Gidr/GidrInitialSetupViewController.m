@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UILabel *welcomeLabel;
 
 @property (nonatomic, strong) NSMutableDictionary *categorySliders;
-@property (nonatomic, strong) NSArray *categories;
 
 @end
 
@@ -60,7 +59,7 @@
         height += self.welcomeLabel.bounds.size.height;
     }
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    for (NSString *category in self.categories) {
+    for (NSString *category in [[self class] categories]) {
         // Create the label for the slider
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, height, self.view.bounds.size.width, 30)];
         label.text = category;
@@ -84,16 +83,15 @@
 - (void)setInitialInterestValues
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    for (NSString *category in self.categories) {
+    for (NSString *category in [[self class] categories]) {
         [userDefaults setFloat:50.0 forKey:category];
     }
     [userDefaults synchronize];
 }
 
-- (NSArray *)categories
++ (NSArray *)categories
 {
-    if (_categories == nil) {
-        _categories = @[@"Business/Finance/Sales",
+    return @[@"Business/Finance/Sales",
                         @"Classes/Workshops",
                         @"Comedy",
                         @"Conferences/Seminars",
@@ -112,8 +110,6 @@
                         @"Social Events/Mixers",
                         @"Sports",
                         @"Travel"];
-    }
-    return _categories;
 }
 
 - (NSMutableDictionary *)categorySliders
@@ -128,7 +124,7 @@
 {
     // Save the input values
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    for (NSString *category in self.categories) {
+    for (NSString *category in [[self class] categories]) {
         [userDefaults setFloat:((UISlider *)[self.categorySliders objectForKey:category]).value forKey:category];
     }
     // Set the initial setup as completed
