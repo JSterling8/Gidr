@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) GidrEvent *selectedEvent;
 @property (nonatomic, strong) GidrEventsMapper *eventsMapper;
+@property (nonatomic, strong) NSArray *results;
 
 
 @end
@@ -36,7 +37,17 @@
     self.tableView.dataSource = self;
     
     [super viewDidLoad];
-    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (location contains[c] \"%@\")", self.searchString, self.searchString]]];
+    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+                                                                     ascending:YES];
+
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    //    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:20];
+    NSError *error = nil;
+    self.results = [self.context executeFetchRequest:fetchRequest error:&error];
 }
 
 
@@ -63,33 +74,35 @@
     return _context;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
-    
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
-                                                                     ascending:YES];
-
-    fetchRequest.sortDescriptors = @[sortDescriptor];
-    
-    [fetchRequest setEntity:entity];
-    [fetchRequest setFetchBatchSize:20];
-    _fetchedResultsController = [[NSFetchedResultsController alloc]
-                                 initWithFetchRequest:fetchRequest
-                                 managedObjectContext:self.context
-                                 sectionNameKeyPath:nil
-                                 cacheName:@"Event"];
-    
-    _fetchedResultsController.delegate = self;
-    NSError *error;
-    [_fetchedResultsController performFetch:&error];
-    
-    return _fetchedResultsController;
-}
+//- (NSFetchedResultsController *)fetchedResultsController {
+//    
+//    if (_fetchedResultsController != nil) {
+//        return _fetchedResultsController;
+//    }
+//    
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+//    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name contains %@", searchString]];
+////    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+//                                                                     ascending:YES];
+//
+//    fetchRequest.sortDescriptors = @[sortDescriptor];
+////    [fetchRequest setEntity:entity];
+//    [fetchRequest setFetchBatchSize:20];
+//    NSError *error = nil;
+//    NSArray *results = [self.context executeFetchRequest:fetchRequest error:&error];
+//    _fetchedResultsController = [[NSFetchedResultsController alloc]
+//                                 initWithFetchRequest:fetchRequest
+//                                 managedObjectContext:self.context
+//                                 sectionNameKeyPath:nil
+//                                 cacheName:@"Event"];
+//    
+//    _fetchedResultsController.delegate = self;
+//    NSError *error;
+//    [_fetchedResultsController performFetch:&error];
+//    
+//    return _fetchedResultsController;
+//}
 
 /*
  * Rest of methods should be in this file
@@ -119,18 +132,20 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
-    //    return 1;
+//    return [[self.fetchedResultsController sections]
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+//    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    return self.results.count;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    GidrEvent *event = [self.results objectAtIndex:indexPath.row];
     NSString *name = event.name;
     NSString *location = event.location;
     [cell.textLabel setText:name];
