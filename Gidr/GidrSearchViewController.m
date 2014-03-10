@@ -50,6 +50,7 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     self.searchString = [textField text];
+    [self.searchStringTF resignFirstResponder];
     return YES;
 }
 
@@ -60,6 +61,8 @@
 }
 
 - (IBAction)searchButtonPressed:(UIButton *)sender {
+    searchString = self.searchStringTF.text;
+    [self.searchStringTF resignFirstResponder];
     [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
 }
 
