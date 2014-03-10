@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchStringTF;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
-@property (nonatomic, strong) GidrEventsMapper *eventsMapper;
 
 
 @end
@@ -73,14 +72,4 @@
         results.searchString = self.searchString;
     }
 }
-
-- (GidrEventsMapper *)eventsMapper
-{
-    if (_eventsMapper == nil) {
-        _eventsMapper = [[GidrEventsMapper alloc] init];
-    }
-    return _eventsMapper;
-}
-
-
 @end
