@@ -66,7 +66,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
-        // BEGIN Sledgehammer
+        /*// BEGIN Sledgehammer
         // Delete the stored local events
         // Get the app delegate
         GidrAppDelegate *delegate = (GidrAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -84,7 +84,7 @@
             [userDefaults setValue:nil forKey:@"lastUpdate"];
             [userDefaults synchronize];
         }
-        // END Sledgehammer
+        // END Sledgehammer*/
         
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
