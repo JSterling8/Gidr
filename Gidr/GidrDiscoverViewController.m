@@ -11,7 +11,7 @@
 
 @interface GidrDiscoverViewController ()
 
-@property (nonatomic, strong) GidrEvent *selectedEvent;
+@property (nonatomic, strong) Event *selectedEvent;
 
 @end
 
@@ -61,7 +61,7 @@
                 // New events found
                 for (PFObject *loadedEvent in loadedEvents) {
                     // This causes a crash, because the context is off?
-                    GidrEvent* localEvent = [self getEventWithId:loadedEvent.objectId];
+                    Event* localEvent = [self getEventWithId:loadedEvent.objectId];
                     if (localEvent != nil && [localEvent.id isEqualToString:loadedEvent.objectId]) {
                         // Update this event, rather than add it
                         [self updateEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"] andDesc:loadedEvent[@"desc"]];
@@ -97,7 +97,7 @@
 {
     NSLog(@"Adding an event");
     // Create a new managed object
-    GidrEvent *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.context];
+    Event *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.context];
     [newEvent setValue:id forKey:@"id"];
     [newEvent setValue:name forKey:@"name"];
     [newEvent setValue:location forKey:@"location"];
@@ -113,7 +113,7 @@
     }
 }
 
-- (GidrEvent*)getEventWithId:(NSString*)id
+- (Event*)getEventWithId:(NSString*)id
 {
     // TODO: This should jsut fetch one results, not an array and then get the first result
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
@@ -132,7 +132,7 @@
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
     NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
     if (events.count == 1) {
-        GidrEvent *event = [events objectAtIndex:0];
+        Event *event = [events objectAtIndex:0];
         event.name = name;
         event.location = location;
         event.date = date;
@@ -153,12 +153,12 @@
 - (void)deleteAllEvents
 {
     NSArray *events = [self.fetchedResultsController fetchedObjects];
-    for (GidrEvent *event in events) {
+    for (Event *event in events) {
         [self deleteEvent:event];
     }
 }
 
-- (void)deleteEvent:(GidrEvent*)event
+- (void)deleteEvent:(Event*)event
 {
     NSString *name = event.name;
     [self.context deleteObject:event];
@@ -241,7 +241,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *name = event.name;
     NSString *location = event.location;
     [cell.textLabel setText:name];

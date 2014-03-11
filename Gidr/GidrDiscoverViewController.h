@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GidrEvent.h"
+#import "Event.h"
 #import <Parse/Parse.h>
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"

@@ -2,23 +2,26 @@
 //  Event.m
 //  Gidr
 //
-//  Created by J.Sterling U1276062 on 14/11/2013.
-//  Copyright (c) 2013 J.Sterling U1276062. All rights reserved.
+//  Created by Administrator on 11/03/2014.
+//  Copyright (c) 2014 Gidr. All rights reserved.
 //
 
 #import "Event.h"
 
+
 @implementation Event
 
-+ (NSDate*)dateAndTime{
-    NSTimeInterval MY_EXTRA_TIME = 22 * 24 * 60 * 60; // 22 days
-    NSDate *dateAndTime = [[NSDate date] dateByAddingTimeInterval:MY_EXTRA_TIME];
-    return dateAndTime;
-}
+@dynamic date;
+@dynamic id;
+@dynamic location;
+@dynamic name;
+@dynamic desc;
+@dynamic endDate;
+@dynamic lowerPrice;
+@dynamic upperPrice;
+@dynamic url;
+@dynamic logo;
+@dynamic ebr;
+@dynamic category;
 
 @end
-
-
-
-
-
