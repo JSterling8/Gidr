@@ -64,7 +64,7 @@
 		D90D748618A7095900B39F14 /* GidrSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSearchViewController.m; sourceTree = "<group>"; };
 		D90D748818A7097C00B39F14 /* GidrSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchResultsTableViewController.h; sourceTree = "<group>"; };
 		D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSearchResultsTableViewController.m; sourceTree = "<group>"; };
-		D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		D9396C2018C101D4006AE09F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D93C2DC018991FCA007A6F6A /* SpashscreenMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpashscreenMockup.png; sourceTree = "<group>"; };
 		D93C2DC118991FCA007A6F6A /* SpashscreenMockup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpashscreenMockup@2x.png"; sourceTree = "<group>"; };
 		D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrTabBarViewController.h; sourceTree = "<group>"; };
@@ -685,10 +685,10 @@
 		D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */,
+				D9396C2018C101D4006AE09F /* Model.xcdatamodel */,
 				D991DDB51895B6C200BEBE47 /* Model.xcdatamodel */,
 			);
-			currentVersion = D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */;
+			currentVersion = D9396C2018C101D4006AE09F /* Model.xcdatamodel */;
 			name = Model.xcdatamodeld;
 			path = ../Model.xcdatamodeld;
 			sourceTree = "<group>";

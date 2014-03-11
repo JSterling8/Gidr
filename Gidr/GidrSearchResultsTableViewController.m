@@ -38,7 +38,7 @@
     
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (location contains[c] \"%@\")", self.searchString, self.searchString]]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (desc contains[c] \"%@\" OR (location contains[c] \"%@\")", self.searchString, self.searchString, self.searchString]]];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
                                                                      ascending:YES];
 

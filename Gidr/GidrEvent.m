@@ -16,4 +16,13 @@
 @dynamic location;
 @dynamic name;
 
+
+@dynamic category;
+@dynamic desc;
+@dynamic ebr;
+@dynamic endDate;
+@dynamic logo;
+@dynamic lowerPrice;
+@dynamic upperPrice;
+@dynamic url;
 @end

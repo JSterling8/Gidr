@@ -40,7 +40,7 @@
 
 - (void)loadEventsFromParse
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"GidrEvent"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [userDefaults valueForKey:@"lastUpdate"];
     NSLog(@"Last Updated: %@", lastUpdate);
@@ -64,10 +64,10 @@
                     GidrEvent* localEvent = [self getEventWithId:loadedEvent.objectId];
                     if (localEvent != nil && [localEvent.id isEqualToString:loadedEvent.objectId]) {
                         // Update this event, rather than add it
-                        [self updateEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
+                        [self updateEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"] andDesc:loadedEvent[@"desc"]];
                     } else {
                         // Event wasn't udpated, so add it
-                        [self addEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
+                        [self addEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"] andDesc:loadedEvent[@"desc"]];
                     }
                 }
             }
@@ -93,7 +93,7 @@
  * These methods shouldn't be in this file!?
  */
 
-- (void)addEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
+- (void)addEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*)date andDesc:(NSString*)desc
 {
     NSLog(@"Adding an event");
     // Create a new managed object
@@ -102,6 +102,7 @@
     [newEvent setValue:name forKey:@"name"];
     [newEvent setValue:location forKey:@"location"];
     [newEvent setValue:date forKey:@"date"];
+    [newEvent setValue:desc forKey:@"desc"];
 
     NSError *error;
     // Save the object to persistent store
@@ -125,7 +126,7 @@
     }
 }
 
-- (BOOL)updateEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
+- (BOOL)updateEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date andDesc:(NSString*)desc
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];

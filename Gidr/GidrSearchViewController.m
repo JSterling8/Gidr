@@ -42,6 +42,7 @@
     self.searchStringTF.delegate = self;
 }
 
+     
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.searchStringTF resignFirstResponder];
     return YES;
@@ -71,5 +72,10 @@
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchString = self.searchString;
     }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *) event
+{
+    [self.searchStringTF resignFirstResponder];
 }
 @end
