@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3A612E918CE8A1500085DE9 /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A612E818CE8A1500085DE9 /* GidrEvent.m */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
 		D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748618A7095900B39F14 /* GidrSearchViewController.m */; };
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
@@ -40,7 +41,6 @@
 		D96C1B5C18957A4300123AFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */; };
 		D97531AB18C0EC000011063F /* GidrEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531AA18C0EC000011063F /* GidrEventViewController.m */; };
 		D97531AD18C0ED6C0011063F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97531AC18C0ED6C0011063F /* StoreKit.framework */; };
-		D97531B018C0EE9B0011063F /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531AF18C0EE9B0011063F /* GidrEvent.m */; };
 		D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531B218C0EEBB0011063F /* GidrEventsMapper.m */; };
 		D991DDB31895B6AE00BEBE47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D991DDB21895B6AE00BEBE47 /* CoreData.framework */; };
 		D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */; };
@@ -58,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3A612E718CE8A1500085DE9 /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
+		C3A612E818CE8A1500085DE9 /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
 		D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsTableControllerViewController.h; sourceTree = "<group>"; };
 		D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsTableControllerViewController.m; sourceTree = "<group>"; };
 		D90D748518A7095900B39F14 /* GidrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchViewController.h; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		D97531A918C0EC000011063F /* GidrEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventViewController.h; sourceTree = "<group>"; };
 		D97531AA18C0EC000011063F /* GidrEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventViewController.m; sourceTree = "<group>"; };
 		D97531AC18C0ED6C0011063F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		D97531AE18C0EE9B0011063F /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
-		D97531AF18C0EE9B0011063F /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
 		D97531B118C0EEBB0011063F /* GidrEventsMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventsMapper.h; sourceTree = "<group>"; };
 		D97531B218C0EEBB0011063F /* GidrEventsMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventsMapper.m; sourceTree = "<group>"; };
 		D991DDB21895B6AE00BEBE47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -166,9 +166,9 @@
 		D90D748318A708CE00B39F14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D97531AE18C0EE9B0011063F /* GidrEvent.h */,
-				D97531AF18C0EE9B0011063F /* GidrEvent.m */,
 				D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */,
+				C3A612E718CE8A1500085DE9 /* GidrEvent.h */,
+				C3A612E818CE8A1500085DE9 /* GidrEvent.m */,
 				D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */,
 				D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */,
 				D97531B118C0EEBB0011063F /* GidrEventsMapper.h */,
@@ -429,7 +429,6 @@
 			files = (
 				D97531AB18C0EC000011063F /* GidrEventViewController.m in Sources */,
 				D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */,
-				D97531B018C0EE9B0011063F /* GidrEvent.m in Sources */,
 				D9517FCD18C3D06A00753FFD /* GidrInitialSetupViewController.m in Sources */,
 				D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */,
 				D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */,
@@ -437,6 +436,7 @@
 				D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */,
 				D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */,
 				D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */,
+				C3A612E918CE8A1500085DE9 /* GidrEvent.m in Sources */,
 				D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */,
 				D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */,
 				D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */,
