@@ -17,94 +17,90 @@
 
 @implementation GidrEventsMapper
 
-/**
- Adds a new event to the Core Data store
- @param id The unique id for the new event
- @param name The display name for the event
- @param location The location for the event
- @param date The date of the event
- @return The newly created GidrEvent object, or nil if the event failed to be created
- */
-- (GidrEvent *)addEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date
+- (GidrEvent *)addEvent:(PFObject *)event
 {
+    NSLog(@"Adding an event");
     // Create a new managed object
     GidrEvent *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-    newEvent.id = id;
-    newEvent.name = name;
-    newEvent.location = location;
-    newEvent.date = date;
+    newEvent.id = event.objectId;
+    newEvent.name = event[@"name"];
+    newEvent.startDate = event[@"startDate"];
+    newEvent.endDate = event[@"endDate"];
+    newEvent.category = event[@"category"];
+    newEvent.descriptionText = event[@"description"];
+    if (event[@"logo"] != [NSNull null]) {
+        newEvent.logo = event[@"logo"];
+    }
+    if (event[@"url"] != [NSNull null]) {
+        newEvent.url = event[@"url"];
+    }
 
     NSError *error;
     // Save the object to persistent store
     if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Error adding event named \"%@\": %@ %@", name, error, [error localizedDescription]);
-        return nil;
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    } else {
+        NSLog(@"Added event with name: %@", event[@"name"]);
+        return newEvent;
     }
-    return newEvent;
+    return nil;
 }
 
-/**
- Get the event from the Core Data store that has the provided id
- @param id The ID of the event to retrieve
- @return The event object retrieved from Core Data, or nil if no event in found with the provided id
- */
 - (GidrEvent*)getEventWithId:(NSString*)id
 {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
-    NSArray *events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    assert(events.count < 2);
-    // Using last object will return either:
-    // 1. The event in the array; or
-    // 2. nil, if no events were found
-    return [events lastObject];
-}
-
-/**
- Update an event in the Core Data store
- @param id The unique ID of the event to update
- @param name The new name for the event
- @param location The new location for the event
- @param date The new data for the event
- @return YES on success, otherwise NO
- */
-- (BOOL)updateEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date;
-{
+    // TODO: This should jsut fetch one results, not an array and then get the first result
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
     NSArray *events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     if (events.count == 1) {
-        GidrEvent *event = [events objectAtIndex:0];
-        event.name = name;
-        event.location = location;
-        event.date = date;
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Error updating event with name: %@: %@ %@", name, error, [error localizedDescription]);
-            return false;
-        }
-        return true;
+        return [events objectAtIndex:0];
     } else {
-        return false;
+        return nil;
     }
 }
 
-/**
- Delete the provided event from the Core Data store
- @param event The event to be deleted
- @return YES on success, otherwise NO
- */
-- (BOOL)deleteEvent:(GidrEvent*)event
+- (BOOL)updateEvent:(PFObject *)event
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", event.objectId];
+    NSArray *events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    assert(events.count == 1);
+    GidrEvent *updatedEvent = [events objectAtIndex:0];
+    updatedEvent.id = event.objectId;
+    updatedEvent.name = event[@"name"];
+    updatedEvent.startDate = event[@"startDate"];
+    updatedEvent.endDate = event[@"endDate"];
+    updatedEvent.category = event[@"category"];
+    updatedEvent.descriptionText = event[@"description"];
+    if (event[@"logo"] != [NSNull null]) {
+        updatedEvent.logo = event[@"logo"];
+    }
+    if (event[@"url"] != [NSNull null]) {
+        updatedEvent.url = event[@"url"];
+    }
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Can't Update event with name: %@: %@ %@", event[@"name"], error, [error localizedDescription]);
+    } else {
+        NSLog(@"Updated event with name: %@", event[@"name"]);
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)deleteEvent:(GidrEvent *)event
 {
     NSString *name = event.name;
     [self.managedObjectContext deleteObject:event];
 
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Error updating event with name: %@: %@ %@", name, error, [error localizedDescription]);
-        return NO;
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+    } else {
+        NSLog(@"Deleted event with name: %@", name);
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 /**

@@ -8,10 +8,12 @@
 
 #import "GidrDiscoverViewController.h"
 #import "GidrEventViewController.h"
+#import "GidrEventsMapper.h"
 
 @interface GidrDiscoverViewController ()
 
 @property (nonatomic, strong) GidrEvent *selectedEvent;
+@property (nonatomic, strong) GidrEventsMapper *eventsMapper;
 
 @end
 
@@ -40,7 +42,7 @@
 
 - (void)loadEventsFromParse
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"GidrEvent"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [userDefaults valueForKey:@"lastUpdate"];
     NSLog(@"Last Updated: %@", lastUpdate);
@@ -49,25 +51,26 @@
         [query whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdate];
     }
     // Only get the events in the future
-    [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
+    NSDate *currentDate = [NSDate date];
+    [query whereKey:@"startDate" greaterThanOrEqualTo:currentDate];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *loadedEvents, NSError *error) {
         if (!error) {
             // The find succeeded
-            [userDefaults setValue:[NSDate date] forKey:@"lastUpdate"];
+            [userDefaults setValue:currentDate forKey:@"lastUpdate"];
             [userDefaults synchronize];
             NSLog(@"Loaded %lu new events", (unsigned long)loadedEvents.count);
             if (loadedEvents.count > 0) {
                 // New events found
                 for (PFObject *loadedEvent in loadedEvents) {
                     // This causes a crash, because the context is off?
-                    GidrEvent* localEvent = [self getEventWithId:loadedEvent.objectId];
+                    GidrEvent* localEvent = [self.eventsMapper getEventWithId:loadedEvent.objectId];
                     if (localEvent != nil && [localEvent.id isEqualToString:loadedEvent.objectId]) {
                         // Update this event, rather than add it
-                        [self updateEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
+                        [self.eventsMapper updateEvent:loadedEvent];
                     } else {
                         // Event wasn't udpated, so add it
-                        [self addEventWithId:loadedEvent.objectId andName:loadedEvent[@"name"] andLocation:loadedEvent[@"location"] andDate:loadedEvent[@"date"]];
+                        [self.eventsMapper addEvent:loadedEvent];
                     }
                 }
             }
@@ -89,88 +92,6 @@
     [self loadEventsFromParse];
 }
 
-/*
- * These methods shouldn't be in this file!?
- */
-
-- (void)addEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
-{
-    NSLog(@"Adding an event");
-    // Create a new managed object
-    GidrEvent *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.context];
-    [newEvent setValue:id forKey:@"id"];
-    [newEvent setValue:name forKey:@"name"];
-    [newEvent setValue:location forKey:@"location"];
-    [newEvent setValue:date forKey:@"date"];
-
-    NSError *error;
-    // Save the object to persistent store
-    if (![self.context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    } else {
-        NSLog(@"Added event with name: %@", name);
-    }
-}
-
-- (GidrEvent*)getEventWithId:(NSString*)id
-{
-    // TODO: This should jsut fetch one results, not an array and then get the first result
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
-    NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
-    if (events.count == 1) {
-        return [events objectAtIndex:0];
-    } else {
-        return nil;
-    }
-}
-
-- (BOOL)updateEventWithId:(NSString*)id andName:(NSString*)name andLocation:(NSString*)location andDate:(NSDate*) date
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
-    NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
-    if (events.count == 1) {
-        GidrEvent *event = [events objectAtIndex:0];
-        event.name = name;
-        event.location = location;
-        event.date = date;
-        NSError *error;
-        if (![self.context save:&error]) {
-            NSLog(@"Can't Update event with name: %@: %@ %@", name, error, [error localizedDescription]);
-            return false;
-        } else {
-            NSLog(@"Updated event with name: %@", name);
-            return true;
-        }
-        return true;
-    } else {
-        return false;
-    }
-}
-
-- (void)deleteAllEvents
-{
-    NSArray *events = [self.fetchedResultsController fetchedObjects];
-    for (GidrEvent *event in events) {
-        [self deleteEvent:event];
-    }
-}
-
-- (void)deleteEvent:(GidrEvent*)event
-{
-    NSString *name = event.name;
-    [self.context deleteObject:event];
-
-    NSError *error = nil;
-    if (![self.context save:&error]) {
-        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-        return;
-    } else {
-        NSLog(@"Deleted event with name: %@", name);
-    }
-}
-
 - (NSManagedObjectContext *)context
 {
     if (_context != nil) {
@@ -180,7 +101,8 @@
     return _context;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
+- (NSFetchedResultsController *)fetchedResultsController
+{
 
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
@@ -188,7 +110,7 @@
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.context];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate"
                                   ascending:YES];
     fetchRequest.sortDescriptors = @[sortDescriptor];
     [fetchRequest setEntity:entity];
@@ -242,9 +164,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *name = event.name;
-    NSString *location = event.location;
     [cell.textLabel setText:name];
-    [cell.detailTextLabel setText:location];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -319,45 +239,6 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -369,6 +250,16 @@
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+#pragma mark Getters
+
+- (GidrEventsMapper *)eventsMapper
+{
+    if (_eventsMapper == nil) {
+        _eventsMapper = [[GidrEventsMapper alloc] init];
+    }
+    return _eventsMapper;
 }
 
 @end

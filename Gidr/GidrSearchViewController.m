@@ -31,7 +31,9 @@
     }
     return self;
 }
-- (IBAction)buttonPush:(UIButton *)sender {
+
+- (IBAction)buttonPush:(UIButton *)sender
+{
     _testLabel.text = _searchStringTF.text;
 }
 
@@ -40,16 +42,29 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.searchStringTF.delegate = self;
+    // Create the gesture recognizer for dismissing the keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.searchStringTF resignFirstResponder];
+- (void)dismissKeyboard
+{
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self dismissKeyboard];
     return YES;
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
     self.searchString = [textField text];
-    [self.searchStringTF resignFirstResponder];
+    [self dismissKeyboard];
     return YES;
 }
 
@@ -59,9 +74,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)searchButtonPressed:(UIButton *)sender {
-    searchString = self.searchStringTF.text;
-    [self.searchStringTF resignFirstResponder];
+- (IBAction)searchButtonPressed:(UIButton *)sender
+{
+    self.searchString = self.searchStringTF.text;
+    [self dismissKeyboard];
     [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
 }
 

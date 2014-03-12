@@ -39,7 +39,7 @@
 
 - (void)methodThatShowsSheet
 {
-    NSArray *itemsToShare = @[@"Check out this awesome event I found!", [NSURL URLWithString:@"http://placeholder.url"]];
+    NSArray *itemsToShare = @[@"Check out this awesome event I found!", [NSURL URLWithString:self.event.url]];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityVC animated:YES completion:nil];

@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "GidrEvent.h"
+#import <Parse/Parse.h>
 
 @interface GidrEventsMapper : NSObject
 
-- (GidrEvent *)addEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date;
+- (GidrEvent *)addEvent:(PFObject *)event;
 
 - (GidrEvent *)getEventWithId:(NSString *)id;
 
-- (BOOL)updateEventWithId:(NSString*)id name:(NSString*)name location:(NSString*)location date:(NSDate*)date;
+- (BOOL)updateEvent:(PFObject *)event;
 
 - (BOOL)deleteEvent:(GidrEvent*)event;
 

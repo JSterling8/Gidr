@@ -18,7 +18,6 @@
 @property (nonatomic, strong) GidrEventsMapper *eventsMapper;
 @property (nonatomic, strong) NSArray *results;
 
-
 @end
 
 @implementation GidrSearchResultsTableViewController
@@ -38,8 +37,8 @@
     
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (location contains[c] \"%@\")", self.searchString, self.searchString]]];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date"
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", self.searchString, self.searchString]]];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate"
                                                                      ascending:YES];
 
     fetchRequest.sortDescriptors = @[sortDescriptor];
@@ -48,22 +47,6 @@
     self.results = [self.context executeFetchRequest:fetchRequest error:&error];
 }
 
-
-- (GidrEvent*)getEventWithId:(NSString*)id
-{
-    // TODO: This should jsut fetch one results, not an array and then get the first result
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
-    NSArray *events = [self.context executeFetchRequest:fetchRequest error:nil];
-    if (events.count == 1) {
-        return [events objectAtIndex:0];
-    } else {
-        return nil;
-    }
-}
-
-
-
 - (NSManagedObjectContext *)context
 {
     if (_context == nil){
@@ -71,28 +54,6 @@
     }
     return _context;
 }
-
-
-/*
- * Rest of methods should be in this file
- */
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 #pragma mark - Table view data source
 
@@ -105,25 +66,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-//    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
     return self.results.count;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-//    GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
     GidrEvent *event = [self.results objectAtIndex:indexPath.row];
     NSString *name = event.name;
-    NSString *location = event.location;
     [cell.textLabel setText:name];
-    [cell.detailTextLabel setText:location];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)sender
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"GidrEventCell";
-    
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GidrEventCell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -191,56 +146,6 @@
     [self.tableView endUpdates];
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-
-- (GidrEventsMapper *)eventsMapper
-{
-    if (_eventsMapper == nil) {
-        _eventsMapper = [[GidrEventsMapper alloc] init];
-    }
-    return _eventsMapper;
-}
-
-
-
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -254,6 +159,15 @@
     // Pass the selected object to the new view controller.
 }
 
+#pragma mark Getters
+
+- (GidrEventsMapper *)eventsMapper
+{
+    if (_eventsMapper == nil) {
+        _eventsMapper = [[GidrEventsMapper alloc] init];
+    }
+    return _eventsMapper;
+}
 
 
 @end

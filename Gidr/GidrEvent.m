@@ -2,18 +2,24 @@
 //  GidrEvent.m
 //  Gidr
 //
-//  Created by Joseph Duffy on 28/02/2014.
+//  Created by Joseph Duffy on 12/03/2014.
 //  Copyright (c) 2014 Gidr. All rights reserved.
 //
 
 #import "GidrEvent.h"
+#import "Venue.h"
 
 
 @implementation GidrEvent
 
-@dynamic date;
+@dynamic category;
+@dynamic descriptionText;
+@dynamic endDate;
 @dynamic id;
-@dynamic location;
+@dynamic logo;
 @dynamic name;
+@dynamic startDate;
+@dynamic url;
+@dynamic venue;
 
 @end
