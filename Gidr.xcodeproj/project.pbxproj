@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A5946018D070460027C41D /* GidrDiscoverLogic.m */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
 		D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748618A7095900B39F14 /* GidrSearchViewController.m */; };
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
@@ -15,6 +16,7 @@
 		D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9517FC918C3D00500753FFD /* GidrTabBarViewController.m */; };
 		D9517FCD18C3D06A00753FFD /* GidrInitialSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */; };
 		D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */; };
+		D9545B1A18D0DDE20001BBAB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9545B1418D0DDE20001BBAB /* Model.xcdatamodeld */; };
 		D96C1B0C189571DC00123AFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0B189571DC00123AFA /* Foundation.framework */; };
 		D96C1B0E189571DC00123AFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0D189571DC00123AFA /* CoreGraphics.framework */; };
 		D96C1B10189571DC00123AFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B0F189571DC00123AFA /* UIKit.framework */; };
@@ -40,12 +42,10 @@
 		D96C1B5C18957A4300123AFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5B18957A4300123AFA /* SystemConfiguration.framework */; };
 		D97531AB18C0EC000011063F /* GidrEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531AA18C0EC000011063F /* GidrEventViewController.m */; };
 		D97531AD18C0ED6C0011063F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97531AC18C0ED6C0011063F /* StoreKit.framework */; };
+		D97531B018C0EE9B0011063F /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531AF18C0EE9B0011063F /* GidrEvent.m */; };
 		D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D97531B218C0EEBB0011063F /* GidrEventsMapper.m */; };
 		D991DDB31895B6AE00BEBE47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D991DDB21895B6AE00BEBE47 /* CoreData.framework */; };
-		D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */; };
 		D9B0E95D18C109D7008A9435 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B0E95C18C109D7008A9435 /* Parse.framework */; };
-		D9C6EF4318D0743300FAB406 /* GidrEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6EF4218D0743300FAB406 /* GidrEvent.m */; };
-		D9C6EF4618D0743400FAB406 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C6EF4518D0743400FAB406 /* Venue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +59,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3A5945F18D070460027C41D /* GidrDiscoverLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrDiscoverLogic.h; sourceTree = "<group>"; };
+		C3A5946018D070460027C41D /* GidrDiscoverLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrDiscoverLogic.m; sourceTree = "<group>"; };
 		D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsTableControllerViewController.h; sourceTree = "<group>"; };
 		D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsTableControllerViewController.m; sourceTree = "<group>"; };
 		D90D748518A7095900B39F14 /* GidrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchViewController.h; sourceTree = "<group>"; };
 		D90D748618A7095900B39F14 /* GidrSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSearchViewController.m; sourceTree = "<group>"; };
 		D90D748818A7097C00B39F14 /* GidrSearchResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchResultsTableViewController.h; sourceTree = "<group>"; };
 		D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSearchResultsTableViewController.m; sourceTree = "<group>"; };
-		D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		D93C2DC018991FCA007A6F6A /* SpashscreenMockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpashscreenMockup.png; sourceTree = "<group>"; };
 		D93C2DC118991FCA007A6F6A /* SpashscreenMockup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpashscreenMockup@2x.png"; sourceTree = "<group>"; };
 		D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrTabBarViewController.h; sourceTree = "<group>"; };
@@ -74,6 +75,11 @@
 		D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrInitialSetupViewController.m; sourceTree = "<group>"; };
 		D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrNavigationController.h; sourceTree = "<group>"; };
 		D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrNavigationController.m; sourceTree = "<group>"; };
+		D9545B1518D0DDE20001BBAB /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		D9545B1618D0DDE20001BBAB /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		D9545B1718D0DDE20001BBAB /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		D9545B1818D0DDE20001BBAB /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
+		D9545B1918D0DDE20001BBAB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D96C1B08189571DC00123AFA /* Gidr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gidr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96C1B0B189571DC00123AFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D96C1B0D189571DC00123AFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,18 +111,12 @@
 		D97531A918C0EC000011063F /* GidrEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventViewController.h; sourceTree = "<group>"; };
 		D97531AA18C0EC000011063F /* GidrEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventViewController.m; sourceTree = "<group>"; };
 		D97531AC18C0ED6C0011063F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D97531AE18C0EE9B0011063F /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
+		D97531AF18C0EE9B0011063F /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
 		D97531B118C0EEBB0011063F /* GidrEventsMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventsMapper.h; sourceTree = "<group>"; };
 		D97531B218C0EEBB0011063F /* GidrEventsMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventsMapper.m; sourceTree = "<group>"; };
 		D991DDB21895B6AE00BEBE47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D991DDB51895B6C200BEBE47 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D9B0E95C18C109D7008A9435 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
-		D9C6EF2F18D066CE00FAB406 /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
-		D9C6EF3918D071FF00FAB406 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
-		D9C6EF3A18D0738000FAB406 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
-		D9C6EF4118D0743300FAB406 /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
-		D9C6EF4218D0743300FAB406 /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
-		D9C6EF4418D0743400FAB406 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
-		D9C6EF4518D0743400FAB406 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,15 +153,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3A5946218D0704D0027C41D /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				C3A5945F18D070460027C41D /* GidrDiscoverLogic.h */,
+				C3A5946018D070460027C41D /* GidrDiscoverLogic.m */,
+				D96C1B401895746700123AFA /* GidrDiscoverViewController.h */,
+				D96C1B411895746700123AFA /* GidrDiscoverViewController.m */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		C3A5946318D0707A0027C41D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */,
+				D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		C3A5946418D070890027C41D /* Event Details */ = {
+			isa = PBXGroup;
+			children = (
+				D97531A918C0EC000011063F /* GidrEventViewController.h */,
+				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
+			);
+			name = "Event Details";
+			sourceTree = "<group>";
+		};
 		D90D748218A708C200B39F14 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3A5946418D070890027C41D /* Event Details */,
+				C3A5946318D0707A0027C41D /* Settings */,
+				C3A5946218D0704D0027C41D /* Discover */,
 				D9517FCE18C3D0BE00753FFD /* Initial Setup */,
-				D9517FD018C3D0DF00753FFD /* Base Views */,
-				D95F52F918D0D88700EA7A01 /* Discover */,
+				D9517FD018C3D0DF00753FFD /* Navigation Controllers */,
 				D9517FCF18C3D0CD00753FFD /* Search */,
-				D95F52FB18D0D8B100EA7A01 /* Event */,
-				D95F52FA18D0D89000EA7A01 /* Settings */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,11 +198,9 @@
 		D90D748318A708CE00B39F14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D9C6EF4418D0743400FAB406 /* Venue.h */,
-				D9C6EF4518D0743400FAB406 /* Venue.m */,
-				D9C6EF4118D0743300FAB406 /* GidrEvent.h */,
-				D9C6EF4218D0743300FAB406 /* GidrEvent.m */,
-				D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */,
+				D97531AE18C0EE9B0011063F /* GidrEvent.h */,
+				D97531AF18C0EE9B0011063F /* GidrEvent.m */,
+				D9545B1418D0DDE20001BBAB /* Model.xcdatamodeld */,
 				D96C1B1A189571DC00123AFA /* GidrAppDelegate.h */,
 				D96C1B1B189571DC00123AFA /* GidrAppDelegate.m */,
 				D97531B118C0EEBB0011063F /* GidrEventsMapper.h */,
@@ -219,7 +246,7 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		D9517FD018C3D0DF00753FFD /* Base Views */ = {
+		D9517FD018C3D0DF00753FFD /* Navigation Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */,
@@ -227,34 +254,7 @@
 				D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */,
 				D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */,
 			);
-			name = "Base Views";
-			sourceTree = "<group>";
-		};
-		D95F52F918D0D88700EA7A01 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
-				D96C1B401895746700123AFA /* GidrDiscoverViewController.h */,
-				D96C1B411895746700123AFA /* GidrDiscoverViewController.m */,
-			);
-			name = Discover;
-			sourceTree = "<group>";
-		};
-		D95F52FA18D0D89000EA7A01 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */,
-				D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
-		D95F52FB18D0D8B100EA7A01 /* Event */ = {
-			isa = PBXGroup;
-			children = (
-				D97531A918C0EC000011063F /* GidrEventViewController.h */,
-				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
-			);
-			name = Event;
+			name = "Navigation Controllers";
 			sourceTree = "<group>";
 		};
 		D96C1AFF189571DC00123AFA = {
@@ -461,18 +461,18 @@
 			files = (
 				D97531AB18C0EC000011063F /* GidrEventViewController.m in Sources */,
 				D96C1B1C189571DC00123AFA /* GidrAppDelegate.m in Sources */,
+				D9545B1A18D0DDE20001BBAB /* Model.xcdatamodeld in Sources */,
+				D97531B018C0EE9B0011063F /* GidrEvent.m in Sources */,
 				D9517FCD18C3D06A00753FFD /* GidrInitialSetupViewController.m in Sources */,
 				D97531B318C0EEBB0011063F /* GidrEventsMapper.m in Sources */,
 				D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */,
-				D9C6EF4618D0743400FAB406 /* Venue.m in Sources */,
 				D96C1B18189571DC00123AFA /* main.m in Sources */,
 				D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */,
 				D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */,
+				C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */,
 				D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */,
 				D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */,
 				D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */,
-				D9C6EF4318D0743300FAB406 /* GidrEvent.m in Sources */,
-				D991DDB61895B6C200BEBE47 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,18 +715,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D991DDB41895B6C200BEBE47 /* Model.xcdatamodeld */ = {
+		D9545B1418D0DDE20001BBAB /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D9C6EF2F18D066CE00FAB406 /* Model 3.xcdatamodel */,
-				D9C6EF3918D071FF00FAB406 /* Model 4.xcdatamodel */,
-				D9C6EF3A18D0738000FAB406 /* Model 5.xcdatamodel */,
-				D9396C2018C101D4006AE09F /* Model 2.xcdatamodel */,
-				D991DDB51895B6C200BEBE47 /* Model.xcdatamodel */,
+				D9545B1518D0DDE20001BBAB /* Model 2.xcdatamodel */,
+				D9545B1618D0DDE20001BBAB /* Model 3.xcdatamodel */,
+				D9545B1718D0DDE20001BBAB /* Model 4.xcdatamodel */,
+				D9545B1818D0DDE20001BBAB /* Model 5.xcdatamodel */,
+				D9545B1918D0DDE20001BBAB /* Model.xcdatamodel */,
 			);
-			currentVersion = D9C6EF3A18D0738000FAB406 /* Model 5.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = ../Model.xcdatamodeld;
+			currentVersion = D9545B1818D0DDE20001BBAB /* Model 5.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
