@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A5946018D070460027C41D /* GidrDiscoverLogic.m */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
 		D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748618A7095900B39F14 /* GidrSearchViewController.m */; };
 		D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748918A7097C00B39F14 /* GidrSearchResultsTableViewController.m */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3A5945F18D070460027C41D /* GidrDiscoverLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrDiscoverLogic.h; sourceTree = "<group>"; };
+		C3A5946018D070460027C41D /* GidrDiscoverLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrDiscoverLogic.m; sourceTree = "<group>"; };
 		D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSettingsTableControllerViewController.h; sourceTree = "<group>"; };
 		D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrSettingsTableControllerViewController.m; sourceTree = "<group>"; };
 		D90D748518A7095900B39F14 /* GidrSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchViewController.h; sourceTree = "<group>"; };
@@ -147,18 +150,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3A5946218D0704D0027C41D /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				C3A5945F18D070460027C41D /* GidrDiscoverLogic.h */,
+				C3A5946018D070460027C41D /* GidrDiscoverLogic.m */,
+				D96C1B401895746700123AFA /* GidrDiscoverViewController.h */,
+				D96C1B411895746700123AFA /* GidrDiscoverViewController.m */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		C3A5946318D0707A0027C41D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */,
+				D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		C3A5946418D070890027C41D /* Event Details */ = {
+			isa = PBXGroup;
+			children = (
+				D97531A918C0EC000011063F /* GidrEventViewController.h */,
+				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
+			);
+			name = "Event Details";
+			sourceTree = "<group>";
+		};
 		D90D748218A708C200B39F14 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3A5946418D070890027C41D /* Event Details */,
+				C3A5946318D0707A0027C41D /* Settings */,
+				C3A5946218D0704D0027C41D /* Discover */,
 				D9517FCE18C3D0BE00753FFD /* Initial Setup */,
-				D9517FD018C3D0DF00753FFD /* Base Views */,
+				D9517FD018C3D0DF00753FFD /* Navigation Controllers */,
 				D9517FCF18C3D0CD00753FFD /* Search */,
-				D97531A918C0EC000011063F /* GidrEventViewController.h */,
-				D97531AA18C0EC000011063F /* GidrEventViewController.m */,
-				D96C1B401895746700123AFA /* GidrDiscoverViewController.h */,
-				D96C1B411895746700123AFA /* GidrDiscoverViewController.m */,
-				D90D747F18A708B600B39F14 /* GidrSettingsTableControllerViewController.h */,
-				D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -214,7 +243,7 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		D9517FD018C3D0DF00753FFD /* Base Views */ = {
+		D9517FD018C3D0DF00753FFD /* Navigation Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D9517FC818C3D00500753FFD /* GidrTabBarViewController.h */,
@@ -222,7 +251,7 @@
 				D952A74E18B16FC200CD22C7 /* GidrNavigationController.h */,
 				D952A74F18B16FC200CD22C7 /* GidrNavigationController.m */,
 			);
-			name = "Base Views";
+			name = "Navigation Controllers";
 			sourceTree = "<group>";
 		};
 		D96C1AFF189571DC00123AFA = {
@@ -436,6 +465,7 @@
 				D96C1B18189571DC00123AFA /* main.m in Sources */,
 				D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */,
 				D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */,
+				C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */,
 				D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */,
 				D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */,
 				D9517FCA18C3D00500753FFD /* GidrTabBarViewController.m in Sources */,
