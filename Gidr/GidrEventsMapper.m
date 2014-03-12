@@ -8,6 +8,7 @@
 
 #import "GidrEventsMapper.h"
 #import "GidrAppDelegate.h"
+#import "Venue.h"
 
 @interface GidrEventsMapper ()
 
@@ -34,7 +35,17 @@
     if (event[@"url"] != [NSNull null]) {
         newEvent.url = event[@"url"];
     }
-
+    PFObject* venue = event[@"Venue"];
+    [venue fetchIfNeeded];
+    Venue *newVenue = [NSEntityDescription insertNewObjectForEntityForName:@"Venue" inManagedObjectContext:self.managedObjectContext];
+    newVenue.name = venue[@"name"];
+    newVenue.line1 = venue[@"line1"];
+    newVenue.line2 = venue[@"line2"];
+    newVenue.city = venue[@"city"];
+    newVenue.county = venue[@"county"];
+    newVenue.country = venue[@"country"];
+    newVenue.postCode = venue[@"postCode"];
+    newEvent.venue = newVenue;
     NSError *error;
     // Save the object to persistent store
     if (![self.managedObjectContext save:&error]) {
@@ -78,6 +89,17 @@
     if (event[@"url"] != [NSNull null]) {
         updatedEvent.url = event[@"url"];
     }
+    PFObject* venue = event[@"Venue"];
+    [venue fetchIfNeeded];
+    Venue *updatedVenue = updatedEvent.venue;
+    updatedVenue.name = venue[@"name"];
+    updatedVenue.line1 = venue[@"line1"];
+    updatedVenue.line2 = venue[@"line2"];
+    updatedVenue.city = venue[@"city"];
+    updatedVenue.county = venue[@"county"];
+    updatedVenue.country = venue[@"country"];
+    updatedVenue.postCode = venue[@"postCode"];
+    updatedEvent.venue = updatedVenue;
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Can't Update event with name: %@: %@ %@", event[@"name"], error, [error localizedDescription]);

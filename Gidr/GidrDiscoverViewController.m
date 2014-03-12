@@ -9,6 +9,7 @@
 #import "GidrDiscoverViewController.h"
 #import "GidrEventViewController.h"
 #import "GidrEventsMapper.h"
+#import "Venue.h"
 
 @interface GidrDiscoverViewController ()
 
@@ -42,10 +43,11 @@
 
 - (void)loadEventsFromParse
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [userDefaults valueForKey:@"lastUpdate"];
     NSLog(@"Last Updated: %@", lastUpdate);
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query includeKey:@"Venue"];
     if (lastUpdate != nil) {
         // An update has already occured, so only get new objects
         [query whereKey:@"updatedAt" greaterThanOrEqualTo:lastUpdate];
@@ -127,32 +129,12 @@
     return _fetchedResultsController;
 }
 
-/*
- * Rest of methods should be in this file
- */
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
     return [[self.fetchedResultsController sections] count];
-//    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -163,8 +145,9 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *name = event.name;
-    [cell.textLabel setText:name];
+    [cell.textLabel setText:event.name];
+    NSLog(@"Venue name %@", event.venue.name);
+    [cell.detailTextLabel setText:event.venue.name];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

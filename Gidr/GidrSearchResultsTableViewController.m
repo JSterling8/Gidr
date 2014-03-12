@@ -10,7 +10,7 @@
 #import "GidrSearchResultsTableViewController.h"
 #import "GidrEventViewController.h"
 #import "GidrEventsMapper.h"
-
+#import "Venue.h"
 
 @interface GidrSearchResultsTableViewController ()
 
@@ -72,8 +72,8 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     GidrEvent *event = [self.results objectAtIndex:indexPath.row];
-    NSString *name = event.name;
-    [cell.textLabel setText:name];
+    [cell.textLabel setText:event.name];
+    [cell.detailTextLabel setText:event.venue.name];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath
