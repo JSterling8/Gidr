@@ -146,7 +146,6 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     GidrEvent *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell.textLabel setText:event.name];
-    NSLog(@"Venue name %@", event.venue.name);
     [cell.detailTextLabel setText:event.venue.name];
 }
 
