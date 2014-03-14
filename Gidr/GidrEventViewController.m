@@ -9,7 +9,6 @@
 #import "GidrEventViewController.h"
 
 
-// did it work pushing ? or not ?
 
 @interface GidrEventViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
