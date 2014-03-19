@@ -10,4 +10,9 @@
 
 @implementation GidrSearchParameters
 
+@synthesize searchTerms;
+@synthesize price;
+@synthesize category;
+@synthesize date;
+
 @end

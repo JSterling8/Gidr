@@ -10,4 +10,9 @@
 
 @interface GidrSearchParameters : NSObject
 
+@property (nonatomic, retain) NSString *searchTerms;
+@property (nonatomic, retain) NSString *date;
+@property NSNumber *price;
+@property (nonatomic, retain) NSString *category;
+
 @end

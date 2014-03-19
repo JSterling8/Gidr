@@ -15,13 +15,22 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchStringTF;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
-
+@property (nonatomic, retain) NSString *searchString;
+@property (nonatomic, retain) GidrSearchParameters *searchParams;
+@property (weak, nonatomic) IBOutlet UITextField *dateTF;
+@property (weak, nonatomic) IBOutlet UITextField *categoryTF;
+@property (weak, nonatomic) IBOutlet UITextField *priceTF;
 
 @end
 
 @implementation GidrSearchViewController
 
 @synthesize searchString;
+@synthesize searchParams;
+@synthesize dateTF;
+@synthesize categoryTF;
+@synthesize priceTF;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,8 +93,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
+        searchParams.searchTerms = [self.searchStringTF text];
+        searchParams.date = [dateTF text];
+        searchParams.category = [categoryTF text];
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        searchParams.price = [f numberFromString:[priceTF text]];
+        
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
+        results.searchParams = self.searchParams;
         results.searchString = self.searchString;
+
     }
 }
 @end
