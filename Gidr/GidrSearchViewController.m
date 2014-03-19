@@ -102,8 +102,8 @@
 }
 
 - (IBAction)enterStartDate:(UITextField *) textField {
+    [self dismissKeyboard];
     
-    {
         UIDatePicker *datePicker = [[UIDatePicker alloc] init];
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] ;
         NSDate *currentDate = [NSDate date];
@@ -117,14 +117,15 @@
         [datePicker setMinimumDate:minimumDate];
         datePicker.datePickerMode = UIDatePickerModeDate;
         textField.inputView = datePicker;
-    }
+    
+    //[textField becomeFirstResponder];
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
+//-(void)textFieldDidBeginEditing:(UITextField *)textField
+//{
     //if ([textField text ] == [self.startDateTF text] || [textField text] == [self.endDateTF text])
     // if (textField == self.startDateTF)
-    {
+    /*{
         UIDatePicker *datePicker = [[UIDatePicker alloc] init];
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] ;
         NSDate *currentDate = [NSDate date];
@@ -138,8 +139,8 @@
         [datePicker setMinimumDate:minimumDate];
         datePicker.datePickerMode = UIDatePickerModeDate;
         textField.inputView = datePicker;
-    }
-}
+    }*/
+//}
 
 
 
