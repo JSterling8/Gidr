@@ -26,7 +26,7 @@
 @implementation GidrSearchViewController
 
 @synthesize searchString;
-@synthesize searchParams;
+// @synthesize searchParams;
 @synthesize dateTF;
 @synthesize categoryTF;
 @synthesize priceTF;
@@ -39,6 +39,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (GidrSearchParameters *)searchParams{
+    if(_searchParams == nil){
+        _searchParams = [[GidrSearchParameters alloc] init];
+    }
+    return _searchParams;
 }
 
 - (IBAction)buttonPush:(UIButton *)sender
@@ -93,12 +100,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
-        searchParams.searchTerms = [self.searchStringTF text];
-        searchParams.date = [dateTF text];
-        searchParams.category = [categoryTF text];
+        _searchParams.searchTerms = [self.searchStringTF text];
+        _searchParams.date = [dateTF text];
+        _searchParams.category = [categoryTF text];
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        searchParams.price = [f numberFromString:[priceTF text]];
+        _searchParams.price = [f numberFromString:[priceTF text]];
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchParams = self.searchParams;
