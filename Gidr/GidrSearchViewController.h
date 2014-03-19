@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GidrSearchParameters.h"
 
 @interface GidrSearchViewController : UIViewController <UITextFieldDelegate>{
     NSString *searchString;
 }
 
 
-@property (nonatomic, retain) NSString *searchString;
+
+
 
 - (IBAction)searchButtonPressed:(UIButton *)sender;
 

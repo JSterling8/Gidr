@@ -10,4 +10,11 @@
 
 @implementation GidrDiscoverLogic
 
+- (NSDictionary *)calculateCategoryPercentages
+{
+    
+    
+    return nil;
+}
+
 @end

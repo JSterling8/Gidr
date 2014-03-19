@@ -13,14 +13,17 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "GidrAppDelegate.h"
+#import "GidrSearchParameters.h"
 
 @interface GidrSearchResultsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSString *searchString;
+@property (nonatomic, retain) GidrSearchParameters *searchParams;
 @property (nonatomic, retain) IBOutlet UILabel *searchLabel;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) NSManagedObjectContext *context;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 
 @end

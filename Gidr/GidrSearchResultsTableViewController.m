@@ -24,11 +24,12 @@
 
 @synthesize searchString;
 @synthesize searchLabel;
+@synthesize searchParams;
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.searchLabel setText:self.searchString];
-    self.navigationItem.title = searchString;
+    [self.searchLabel setText:[searchParams searchTerms]];
+    self.navigationItem.title = [searchParams searchTerms];
 }
 
 - (void)viewDidLoad
@@ -37,7 +38,7 @@
     
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", self.searchString, self.searchString]]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", [searchParams searchTerms], [searchParams searchTerms]]]];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate"
                                                                      ascending:YES];
 
@@ -169,5 +170,12 @@
     return _eventsMapper;
 }
 
+
+- (GidrSearchParameters *)searchParams{
+    if(searchParams == nil){
+        searchParams = [[GidrSearchParameters alloc] init];
+    }
+    return searchParams;
+}
 
 @end
