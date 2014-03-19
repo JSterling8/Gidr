@@ -7,6 +7,8 @@
 //
 
 #import "GidrEventViewController.h"
+#import "Venue.h"
+
 
 
 
@@ -19,9 +21,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *EndDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *StartDLabel;
 @property (weak, nonatomic) IBOutlet UILabel *EndDLabel;
-@property (weak, nonatomic) IBOutlet UITextView *URLLabel;
 @property (weak, nonatomic) IBOutlet UILabel *VenueLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextView *URLLabel;
 
 @end
 
@@ -39,14 +42,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
+    self.scrollView.scrollEnabled = YES;
+    self.scrollView.contentInset = UIEdgeInsetsMake(-64.0, 0.0, 0.0, 0.0);
     [self.eventNameLabel setText:self.event.name];
     [self.CategoryLabel setText:self.event.category];
     [self.DescriptionText setText:self.event.descriptionText];
     [self.VenueLabel setText:self.event.venue.name];
     
-    NSString *newCountryString =[self.event.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    [self.URLLabel setText:newCountryString];
+  
+    self.URLLabel.text = self.event.url;
+    self.URLLabel.dataDetectorTypes = UIDataDetectorTypeLink;
 
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
