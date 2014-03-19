@@ -42,6 +42,7 @@
     [self.eventNameLabel setText:self.event.name];
     [self.CategoryLabel setText:self.event.category];
     [self.DescriptionText setText:self.event.descriptionText];
+    [self.VenueLabel setText:self.event.venue.name];
     
     NSString *newCountryString =[self.event.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
