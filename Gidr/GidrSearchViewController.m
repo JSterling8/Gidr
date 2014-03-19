@@ -42,7 +42,7 @@
 }
 
 - (GidrSearchParameters *)searchParams{
-    if(_searchParams == nil){
+    if (_searchParams == nil) {
         _searchParams = [[GidrSearchParameters alloc] init];
     }
     return _searchParams;
