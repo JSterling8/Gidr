@@ -100,12 +100,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
-        _searchParams.searchTerms = [self.searchStringTF text];
-        _searchParams.date = [dateTF text];
-        _searchParams.category = [categoryTF text];
+        self.searchParams.searchTerms = [self.searchStringTF text];
+        self.searchParams.date = [dateTF text];
+        self.searchParams.category = [categoryTF text];
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        _searchParams.price = [f numberFromString:[priceTF text]];
+        self.searchParams.price = [f numberFromString:[priceTF text]];
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchParams = self.searchParams;
