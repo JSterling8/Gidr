@@ -17,9 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
 @property (nonatomic, retain) NSString *searchString;
 @property (nonatomic, retain) GidrSearchParameters *searchParams;
-@property (weak, nonatomic) IBOutlet UITextField *dateTF;
+@property (weak, nonatomic) IBOutlet UITextField *startDateTF;
+@property (weak, nonatomic) IBOutlet UITextField *endDateTF;
 @property (weak, nonatomic) IBOutlet UITextField *categoryTF;
 @property (weak, nonatomic) IBOutlet UITextField *priceTF;
+
+
 
 @end
 
@@ -27,9 +30,10 @@
 
 @synthesize searchString;
 // @synthesize searchParams;
-@synthesize dateTF;
-@synthesize categoryTF;
-@synthesize priceTF;
+// @synthesize startDateTF;
+// @synthesize endDateTF;
+// @synthesize categoryTF;
+// @synthesize priceTF;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -97,15 +101,60 @@
     [self performSegueWithIdentifier:@"SearchResultsSegue" sender:self];
 }
 
+- (IBAction)enterStartDate:(UITextField *) textField {
+    
+    {
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] ;
+        NSDate *currentDate = [NSDate date];
+        NSDate *endDate = [NSDate distantFuture];
+        NSDateComponents *comps = [[NSDateComponents alloc] init] ;
+        [comps setYear:-0];
+        NSDate *maximumDate = [calendar dateByAddingComponents:comps toDate:endDate options:0];
+        [comps setYear:0];
+        NSDate *minimumDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+        [datePicker setMaximumDate:maximumDate];
+        [datePicker setMinimumDate:minimumDate];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        textField.inputView = datePicker;
+    }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //if ([textField text ] == [self.startDateTF text] || [textField text] == [self.endDateTF text])
+    // if (textField == self.startDateTF)
+    {
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] ;
+        NSDate *currentDate = [NSDate date];
+        NSDate *endDate = [NSDate distantFuture];
+        NSDateComponents *comps = [[NSDateComponents alloc] init] ;
+        [comps setYear:-0];
+        NSDate *maximumDate = [calendar dateByAddingComponents:comps toDate:endDate options:0];
+        [comps setYear:0];
+        NSDate *minimumDate = [calendar dateByAddingComponents:comps toDate:currentDate options:0];
+        [datePicker setMaximumDate:maximumDate];
+        [datePicker setMinimumDate:minimumDate];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        textField.inputView = datePicker;
+    }
+}
+
+
+
+
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
         self.searchParams.searchTerms = [self.searchStringTF text];
-        self.searchParams.date = [dateTF text];
-        self.searchParams.category = [categoryTF text];
+        self.searchParams.date = [self.startDateTF text];
+        self.searchParams.category = [self.categoryTF text];
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        self.searchParams.price = [f numberFromString:[priceTF text]];
+        self.searchParams.price = [f numberFromString:[self.priceTF text]];
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchParams = self.searchParams;
