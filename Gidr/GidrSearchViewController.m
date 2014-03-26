@@ -69,6 +69,12 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    self.searchStringTF.returnKeyType = UIReturnKeyDone;
+    self.startDateTF.returnKeyType = UIReturnKeyDone;
+    self.endDateTF.returnKeyType = UIReturnKeyDone;
+    self.categoryTF.returnKeyType = UIReturnKeyDone;
+    self.priceTF.returnKeyType = UIReturnKeyDone;
+
 }
 
 - (void)dismissKeyboard
