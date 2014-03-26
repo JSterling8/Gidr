@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *startDateTF;
 @property (weak, nonatomic) IBOutlet UITextField *endDateTF;
 @property (weak, nonatomic) IBOutlet UITextField *categoryTF;
-@property (weak, nonatomic) IBOutlet UITextField *priceTF;
+@property (weak, nonatomic) IBOutlet UITextField *radiusTF;
 
 
 
@@ -71,9 +71,10 @@
     
     self.searchStringTF.returnKeyType = UIReturnKeyDone;
     self.startDateTF.returnKeyType = UIReturnKeyDone;
+    
     self.endDateTF.returnKeyType = UIReturnKeyDone;
     self.categoryTF.returnKeyType = UIReturnKeyDone;
-    self.priceTF.returnKeyType = UIReturnKeyDone;
+    self.radiusTF.returnKeyType = UIReturnKeyDone;
 
 }
 
@@ -161,9 +162,9 @@
         self.searchParams.startDate = [self.startDateTF text];
         self.searchParams.endDate = [self.endDateTF text];
         self.searchParams.category = [self.categoryTF text];
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        self.searchParams.price = [f numberFromString:[self.priceTF text]];
+        //NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        //[f setNumberStyle:NSNumberFormatterDecimalStyle];
+        //self.searchParams.price = [f numberFromString:[self.priceTF text]];
         
         GidrSearchResultsTableViewController *results = (GidrSearchResultsTableViewController *)segue.destinationViewController;
         results.searchParams = self.searchParams;
