@@ -43,14 +43,12 @@
     //    });
     self.discoverLogic = [[GidrDiscoverLogic alloc] init];
     [self.discoverLogic calculateCategoryPercentages];
-    [self.discoverLogic printPercentages];
 }
 
 - (void)loadEventsFromParse
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [userDefaults valueForKey:@"lastUpdate"];
-    NSLog(@"Last Updated: %@", lastUpdate);
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     [query includeKey:@"Venue"];
     if (lastUpdate != nil) {
@@ -66,7 +64,6 @@
             // The find succeeded
             [userDefaults setValue:currentDate forKey:@"lastUpdate"];
             [userDefaults synchronize];
-            NSLog(@"Loaded %lu new events", (unsigned long)loadedEvents.count);
             if (loadedEvents.count > 0) {
                 // New events found
                 for (PFObject *loadedEvent in loadedEvents) {

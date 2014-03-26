@@ -103,7 +103,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Perform the segue to the event details view
-    self.selectedEvent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    self.selectedEvent = [self.results objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"EventViewSegue" sender:self];
 }
 
@@ -170,7 +170,6 @@
     if ([segue.identifier isEqualToString:@"EventViewSegue"]) {
         GidrEventViewController *viewController = (GidrEventViewController *)[segue destinationViewController];
         viewController.event = self.selectedEvent;
-        NSLog(@"Selected event's name in searchTVC: %@", self.selectedEvent.name);
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

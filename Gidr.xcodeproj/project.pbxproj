@@ -117,6 +117,7 @@
 		D97531AC18C0ED6C0011063F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D97531B118C0EEBB0011063F /* GidrEventsMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEventsMapper.h; sourceTree = "<group>"; };
 		D97531B218C0EEBB0011063F /* GidrEventsMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEventsMapper.m; sourceTree = "<group>"; };
+		D97AB8EC18E2D57200753BAF /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
 		D991DDB21895B6AE00BEBE47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D9AA4CC418D0FBDC00C56B49 /* GidrEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrEvent.h; sourceTree = "<group>"; };
 		D9AA4CC518D0FBDC00C56B49 /* GidrEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrEvent.m; sourceTree = "<group>"; };
@@ -729,6 +730,7 @@
 		D9545B1418D0DDE20001BBAB /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D97AB8EC18E2D57200753BAF /* Model 7.xcdatamodel */,
 				D9545B1518D0DDE20001BBAB /* Model 2.xcdatamodel */,
 				D9545B1618D0DDE20001BBAB /* Model 3.xcdatamodel */,
 				D9545B1718D0DDE20001BBAB /* Model 4.xcdatamodel */,
@@ -736,7 +738,7 @@
 				D9AA4CCA18D0FF5300C56B49 /* Model 6.xcdatamodel */,
 				D9545B1918D0DDE20001BBAB /* Model.xcdatamodel */,
 			);
-			currentVersion = D9AA4CCA18D0FF5300C56B49 /* Model 6.xcdatamodel */;
+			currentVersion = D97AB8EC18E2D57200753BAF /* Model 7.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

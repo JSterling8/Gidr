@@ -20,7 +20,6 @@
 
 - (GidrEvent *)addEvent:(PFObject *)event
 {
-    NSLog(@"Adding an event");
     // Create a new managed object
     GidrEvent *newEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     newEvent.id = event.objectId;
@@ -51,7 +50,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     } else {
-        NSLog(@"Added event with name: %@", event[@"name"]);
         return newEvent;
     }
     return nil;
@@ -59,9 +57,9 @@
 
 - (GidrEvent*)getEventWithId:(NSString*)id
 {
-    // TODO: This should jsut fetch one results, not an array and then get the first result
+    // TODO: This should just fetch one results, not an array and then get the first result
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"any id = %@", id];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id = %@", id];
     NSArray *events = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     if (events.count == 1) {
         return [events objectAtIndex:0];
@@ -104,7 +102,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Can't Update event with name: %@: %@ %@", event[@"name"], error, [error localizedDescription]);
     } else {
-        NSLog(@"Updated event with name: %@", event[@"name"]);
         return YES;
     }
     return NO;
@@ -112,14 +109,12 @@
 
 - (BOOL)deleteEvent:(GidrEvent *)event
 {
-    NSString *name = event.name;
     [self.managedObjectContext deleteObject:event];
 
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
     } else {
-        NSLog(@"Deleted event with name: %@", name);
         return YES;
     }
     return NO;

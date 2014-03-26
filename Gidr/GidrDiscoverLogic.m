@@ -7,6 +7,7 @@
 //
 
 #import "GidrDiscoverLogic.h"
+#import "GidrInitialSetupViewController.h"
 
 @interface GidrDiscoverLogic ()
     
@@ -17,9 +18,7 @@
 
 @implementation GidrDiscoverLogic
 
-@synthesize percentages;
-
-- (void)calculateCategoryPercentages
+- (NSDictionary *)calculateCategoryPercentages
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     self.percentages = [[NSMutableDictionary alloc]initWithCapacity:[self.categories count]];
@@ -31,50 +30,28 @@
         [self.percentages setObject:[NSNumber numberWithFloat:[userDefaults floatForKey:category]] forKey:category];
         self.total += [userDefaults floatForKey:category];
     }
- }
 
-- (void)printPercentages {
-    for(id key in percentages) {
-        NSMutableString *string = (NSMutableString *)key;
-        [string appendString:@": "];
-        
-        [string appendString:[NSString stringWithFormat:@"%@", [percentages objectForKey:key]]];
-        NSString *immutableString = [NSString stringWithString:string];
-
-    
-        // NSLog(NSLog(@"%@", immutableString));
+    NSMutableDictionary *tempPerentages = [[NSMutableDictionary alloc] init];
+    for (NSString *category in self.percentages) {
+        float temp = [(NSNumber *)[self.percentages objectForKey:category] floatValue]/self.total;
+        [tempPerentages setObject:[NSNumber numberWithFloat:temp] forKey:category];
     }
+    self.percentages = tempPerentages;
+    return self.percentages;
 }
 
-- (NSMutableDictionary*)percentages{
-    if (!percentages){
-        percentages = [[NSMutableDictionary alloc]initWithCapacity:[self.categories count]];
+- (NSMutableDictionary *)percentages
+{
+    if (!_percentages) {
+        _percentages = [[NSMutableDictionary alloc]initWithCapacity:[self.categories count]];
     }
     
-    return percentages;
+    return _percentages;
 }
 
 - (NSArray *)categories
 {
-    return @[@"Business/Finance/Sales",
-             @"Classes/Workshops",
-             @"Comedy",
-             @"Conferences/Seminars",
-             @"Conventions/Tradeshows/Expos",
-             @"Endurance",
-             @"Festivals/Fairs",
-             @"Food/Wine",
-             @"Fundraising/Charities/Giving",
-             @"Movies/Film",
-             @"Music/Concerts",
-             @"Networking/Clubs/Associations",
-             @"Outdoors/Recreation",
-             @"Performing Arts",
-             @"Religion/Spirituality",
-             @"Schools/Reunions/Alumni",
-             @"Social Events/Mixers",
-             @"Sports",
-             @"Travel"];
+    return [GidrInitialSetupViewController categories];
 }
 
 
