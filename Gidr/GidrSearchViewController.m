@@ -68,6 +68,7 @@
                                    action:@selector(dismissKeyboard)];
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
+    
 }
 
 - (void)dismissKeyboard
