@@ -10,4 +10,10 @@
 
 @interface GidrDiscoverLogic : NSObject
 
+@property (nonatomic, strong) NSArray* categories;
+@property (nonatomic, strong) NSMutableDictionary* percentages;
+
+-(void)calculateCategoryPercentages;
+-(void)printPercentages;
+
 @end

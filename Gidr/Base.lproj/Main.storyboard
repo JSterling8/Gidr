@@ -292,7 +292,7 @@
                     <connections>
                         <outlet property="categoryTF" destination="kUq-gR-6lz" id="awe-uw-KjO"/>
                         <outlet property="endDateTF" destination="TCf-SH-ksp" id="4qc-oH-fvc"/>
-                        <outlet property="priceTF" destination="pN7-wy-TcT" id="uY7-Qw-mpX"/>
+                        <outlet property="radiusTF" destination="pN7-wy-TcT" id="GyB-i2-8qD"/>
                         <outlet property="searchStringTF" destination="gbH-Cz-KEt" id="IhT-KN-kZz"/>
                         <outlet property="startDateTF" destination="1f3-8b-Y4A" id="a8j-Ev-mNo"/>
                         <segue destination="Woh-Aj-0HR" kind="push" identifier="SearchResultsSegue" id="4u4-fQ-xsx"/>
@@ -484,7 +484,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="DQM-g4-nwY"/>
         <segue reference="xmc-Dn-s0O"/>
+        <segue reference="DQM-g4-nwY"/>
     </inferredMetricsTieBreakers>
 </document>

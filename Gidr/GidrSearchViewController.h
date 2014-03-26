@@ -13,10 +13,6 @@
     NSString *searchString;
 }
 
-
-
-
-
 - (IBAction)searchButtonPressed:(UIButton *)sender;
 
 @end

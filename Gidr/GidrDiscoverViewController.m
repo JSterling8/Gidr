@@ -9,12 +9,14 @@
 #import "GidrDiscoverViewController.h"
 #import "GidrEventViewController.h"
 #import "GidrEventsMapper.h"
+#import "GidrDiscoverLogic.h"
 #import "Venue.h"
 
 @interface GidrDiscoverViewController ()
 
 @property (nonatomic, strong) GidrEvent *selectedEvent;
 @property (nonatomic, strong) GidrEventsMapper *eventsMapper;
+@property (nonatomic, strong) GidrDiscoverLogic *discoverLogic;
 
 @end
 
@@ -39,6 +41,9 @@
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
     [self loadEventsFromParse];
     //    });
+    self.discoverLogic = [[GidrDiscoverLogic alloc] init];
+    [self.discoverLogic calculateCategoryPercentages];
+    [self.discoverLogic printPercentages];
 }
 
 - (void)loadEventsFromParse
@@ -160,7 +165,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Perform the segue to the devent details view
+    // Perform the segue to the event details view
     self.selectedEvent = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"EventViewSegue" sender:self];
 }

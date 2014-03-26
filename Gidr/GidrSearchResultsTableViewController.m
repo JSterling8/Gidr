@@ -102,7 +102,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Perform the segue to the devent details view
+    // Perform the segue to the event details view
     self.selectedEvent = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"EventViewSegue" sender:self];
 }
@@ -165,12 +165,12 @@
 
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"EventViewSegue"]) {
         GidrEventViewController *viewController = (GidrEventViewController *)[segue destinationViewController];
         viewController.event = self.selectedEvent;
+        NSLog(@"Selected event's name in searchTVC: %@", self.selectedEvent.name);
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
