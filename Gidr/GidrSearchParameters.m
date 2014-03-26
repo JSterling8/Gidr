@@ -13,6 +13,7 @@
 @synthesize searchTerms;
 @synthesize price;
 @synthesize category;
-@synthesize date;
+@synthesize startDate;
+@synthesize endDate;
 
 @end

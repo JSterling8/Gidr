@@ -158,7 +158,8 @@
 {
     if ([segue.identifier isEqualToString:@"SearchResultsSegue"]) {
         self.searchParams.searchTerms = [self.searchStringTF text];
-        self.searchParams.date = [self.startDateTF text];
+        self.searchParams.startDate = [self.startDateTF text];
+        self.searchParams.endDate = [self.endDateTF text];
         self.searchParams.category = [self.categoryTF text];
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];

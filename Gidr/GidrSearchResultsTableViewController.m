@@ -38,7 +38,23 @@
     
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Event"];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", [searchParams searchTerms], [searchParams searchTerms]]]];
+    //NSString* predicateString = [NSString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", [searchParams searchTerms], [searchParams searchTerms]];
+    
+    NSMutableString *predicateString = [NSMutableString stringWithFormat:@"(name contains[c] \"%@\") OR (descriptionText contains[c] \"%@\")", [searchParams searchTerms], [searchParams searchTerms]];
+    
+    if (![[searchParams category]  isEqual: @""]){
+        [predicateString appendString:[NSString stringWithFormat:@" AND (category contains[c] \"%@\")", [searchParams category]]];
+    }
+    
+    // TODO add this once price added to CoreData
+    /*if ([searchParams price]){
+        [predicateString appendString:[NSString stringWithFormat:@" AND (price lessThan \"%@\")", [searchParams price]]];
+    }*/
+    
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:predicateString]];
+    
+
+    
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate"
                                                                      ascending:YES];
 
