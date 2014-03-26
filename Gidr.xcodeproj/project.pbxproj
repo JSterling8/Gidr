@@ -32,8 +32,6 @@
 		D96C1B35189571DC00123AFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B33189571DC00123AFA /* InfoPlist.strings */; };
 		D96C1B37189571DC00123AFA /* GidrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B36189571DC00123AFA /* GidrTests.m */; };
 		D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96C1B411895746700123AFA /* GidrDiscoverViewController.m */; };
-		D96C1B481895792E00123AFA /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B471895792E00123AFA /* radar.png */; };
-		D96C1B4A1895796F00123AFA /* magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = D96C1B491895796F00123AFA /* magnify.png */; };
 		D96C1B4E18957A0400123AFA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4D18957A0400123AFA /* AudioToolbox.framework */; };
 		D96C1B5018957A0D00123AFA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B4F18957A0D00123AFA /* CFNetwork.framework */; };
 		D96C1B5218957A2100123AFA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D96C1B5118957A2100123AFA /* libz.dylib */; };
@@ -446,11 +444,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D96C1B481895792E00123AFA /* radar.png in Resources */,
 				D96C1B24189571DC00123AFA /* Images.xcassets in Resources */,
 				D93C2DC218991FCA007A6F6A /* SpashscreenMockup.png in Resources */,
 				D96C1B16189571DC00123AFA /* InfoPlist.strings in Resources */,
-				D96C1B4A1895796F00123AFA /* magnify.png in Resources */,
 				D93C2DC318991FCA007A6F6A /* SpashscreenMockup@2x.png in Resources */,
 				D96C1B1F189571DC00123AFA /* Main.storyboard in Resources */,
 			);
