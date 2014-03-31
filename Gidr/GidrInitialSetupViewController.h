@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GidrInitialSetupViewController : UIViewController
+@interface GidrInitialSetupViewController : UIViewController <UIAlertViewDelegate>
 
 /**
  Get all the categories for the user's personal interests
  @return An NSArray of all the categories options for the user to provide an interest level
  */
 + (NSArray *)categories;
+
+- (void)resetButtonPressed;
 
 @end
 

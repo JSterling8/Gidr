@@ -58,6 +58,12 @@
         [scrollView addSubview:self.welcomeLabel];
         height += self.welcomeLabel.bounds.size.height;
     }
+    UIButton *slidersToZeroButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    slidersToZeroButton.frame = CGRectMake(0, height, self.view.bounds.size.width, 20);
+    [slidersToZeroButton setTitle:@"Reset All To Zero" forState:UIControlStateNormal];
+    [slidersToZeroButton addTarget:self action:@selector(resetButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [scrollView addSubview:slidersToZeroButton];
+    height += slidersToZeroButton.bounds.size.height;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     for (NSString *category in [[self class] categories]) {
         // Create the label for the slider
@@ -80,6 +86,21 @@
     [self.view addSubview:scrollView];
 }
 
+- (void)resetButtonPressed
+{
+    [[[UIAlertView alloc] initWithTitle:@"Reset All To Zero?" message:@"This will move all the sliders to the left, giving each category a value of 0" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        // Reset all to zero
+        for (NSString *category in [[self class] categories]) {
+            ((UISlider *)[self.categorySliders objectForKey:category]).value = 0.0;
+        }
+    }
+}
+
 - (void)setInitialInterestValues
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -92,24 +113,24 @@
 + (NSArray *)categories
 {
     return @[@"Business/Finance/Sales",
-                        @"Classes/Workshops",
-                        @"Comedy",
-                        @"Conferences/Seminars",
-                        @"Conventions/Tradeshows/Expos",
-                        @"Endurance",
-                        @"Festivals/Fairs",
-                        @"Food/Wine",
-                        @"Fundraising/Charities/Giving",
-                        @"Movies/Film",
-                        @"Music/Concerts",
-                        @"Networking/Clubs/Associations",
-                        @"Outdoors/Recreation",
-                        @"Performing Arts",
-                        @"Religion/Spirituality",
-                        @"Schools/Reunions/Alumni",
-                        @"Social Events/Mixers",
-                        @"Sports",
-                        @"Travel"];
+             @"Classes/Workshops",
+             @"Comedy",
+             @"Conferences/Seminars",
+             @"Conventions/Tradeshows/Expos",
+             @"Endurance",
+             @"Festivals/Fairs",
+             @"Food/Wine",
+             @"Fundraising/Charities/Giving",
+             @"Movies/Film",
+             @"Music/Concerts",
+             @"Networking/Clubs/Associations",
+             @"Outdoors/Recreation",
+             @"Performing Arts",
+             @"Religion/Spirituality",
+             @"Schools/Reunions/Alumni",
+             @"Social Events/Mixers",
+             @"Sports",
+             @"Travel"];
 }
 
 - (NSMutableDictionary *)categorySliders
