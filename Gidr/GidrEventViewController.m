@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *URLLabel;
+@property (weak, nonatomic) IBOutlet UILabel *catLbl;
 
 @end
 
@@ -43,15 +44,19 @@
 {
     [super viewDidLoad];
     
-    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentInset = UIEdgeInsetsMake(-64.0, 0.0, 0.0, 0.0);
     [self.eventNameLabel setText:self.event.name];
     [self.CategoryLabel setText:self.event.category];
+    if (!self.event.category || [self.event.category isEqualToString:@""]){
+        self.CategoryLabel.text = @"";
+        self.catLbl.text = @"";
+        
+    }
     [self.DescriptionText setText:self.event.descriptionText];
     [self.VenueLabel setText:self.event.venue.name];
+    self.DescriptionText.scrollEnabled = YES;
     
-  
     self.URLLabel.text = self.event.url;
     self.URLLabel.dataDetectorTypes = UIDataDetectorTypeLink;
 
@@ -72,8 +77,12 @@
                                      action:@selector(methodThatShowsSheet)];
     
     self.navigationItem.rightBarButtonItem = actionButton;
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
+
 	// Do any additional setup after loading the view.
 }
+
 
 - (void)methodThatShowsSheet
 {
