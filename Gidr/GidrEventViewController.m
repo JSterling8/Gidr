@@ -9,10 +9,8 @@
 #import "GidrEventViewController.h"
 #import "Venue.h"
 
-
-
-
 @interface GidrEventViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *CategoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DescriptionLabel;
@@ -53,10 +51,10 @@
         self.catLbl.text = @"";
         
     }
-    [self.DescriptionText setText:self.event.descriptionText];
-    [self.VenueLabel setText:self.event.venue.name];
+//    [self.DescriptionText setText:self.event.descriptionText];
     self.DescriptionText.scrollEnabled = YES;
-    
+    [self.VenueLabel setText:self.event.venue.name];
+
     self.URLLabel.text = self.event.url;
     self.URLLabel.dataDetectorTypes = UIDataDetectorTypeLink;
 
