@@ -7,6 +7,7 @@
 //
 
 #import "GidrInitialSetupViewController.h"
+#import "GidrUISlider.h"
 
 @interface GidrInitialSetupViewController ()
 
@@ -59,21 +60,22 @@
         height += self.welcomeLabel.bounds.size.height;
     }
     UIButton *slidersToZeroButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    slidersToZeroButton.frame = CGRectMake(0, height, self.view.bounds.size.width, 20);
+    slidersToZeroButton.frame = CGRectMake(0, height+10, self.view.bounds.size.width, 20);
     [slidersToZeroButton setTitle:@"Reset All To Zero" forState:UIControlStateNormal];
+    slidersToZeroButton.titleLabel.font = [UIFont systemFontOfSize: 20];
     [slidersToZeroButton addTarget:self action:@selector(resetButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [scrollView addSubview:slidersToZeroButton];
     height += slidersToZeroButton.bounds.size.height;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     for (NSString *category in [[self class] categories]) {
         // Create the label for the slider
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, height, self.view.bounds.size.width, 30)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, height+20, self.view.bounds.size.width, 60)];
         label.text = category;
         [label setTextAlignment:NSTextAlignmentCenter];
         [scrollView addSubview:label];
         height += label.bounds.size.height;
         // Create the slider
-        UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, height, self.view.bounds.size.width, 20)];
+        GidrUISlider *slider = [[GidrUISlider alloc] initWithFrame:CGRectMake(0, height, self.view.bounds.size.width, 20)];
         // Set the maximum value first, or setting the value will mess it all up since the default maximum is 1.0
         slider.maximumValue = 100.0;
         // Set the value to the value stored in the user defaults

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C388468E18EAECBB00CBB0E9 /* GidrUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = C388468D18EAECBB00CBB0E9 /* GidrUISlider.m */; };
 		C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A5946018D070460027C41D /* GidrDiscoverLogic.m */; };
 		C3BB409818D912B500A90A6C /* GidrSearchParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BB409718D912B500A90A6C /* GidrSearchParameters.m */; };
 		D90D748118A708B600B39F14 /* GidrSettingsTableControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90D748018A708B600B39F14 /* GidrSettingsTableControllerViewController.m */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C388468C18EAECBB00CBB0E9 /* GidrUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrUISlider.h; sourceTree = SOURCE_ROOT; };
+		C388468D18EAECBB00CBB0E9 /* GidrUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrUISlider.m; sourceTree = SOURCE_ROOT; };
 		C3A5945F18D070460027C41D /* GidrDiscoverLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrDiscoverLogic.h; sourceTree = "<group>"; };
 		C3A5946018D070460027C41D /* GidrDiscoverLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GidrDiscoverLogic.m; sourceTree = "<group>"; };
 		C3BB409618D912B500A90A6C /* GidrSearchParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GidrSearchParameters.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 		D9517FCE18C3D0BE00753FFD /* Initial Setup */ = {
 			isa = PBXGroup;
 			children = (
+				C388468C18EAECBB00CBB0E9 /* GidrUISlider.h */,
+				C388468D18EAECBB00CBB0E9 /* GidrUISlider.m */,
 				D9517FCB18C3D06A00753FFD /* GidrInitialSetupViewController.h */,
 				D9517FCC18C3D06A00753FFD /* GidrInitialSetupViewController.m */,
 			);
@@ -479,6 +484,7 @@
 				D90D748718A7095900B39F14 /* GidrSearchViewController.m in Sources */,
 				D9AA4CC618D0FBDC00C56B49 /* GidrEvent.m in Sources */,
 				D96C1B421895746700123AFA /* GidrDiscoverViewController.m in Sources */,
+				C388468E18EAECBB00CBB0E9 /* GidrUISlider.m in Sources */,
 				C3A5946118D070460027C41D /* GidrDiscoverLogic.m in Sources */,
 				D952A75018B16FC200CD22C7 /* GidrNavigationController.m in Sources */,
 				D90D748A18A7097C00B39F14 /* GidrSearchResultsTableViewController.m in Sources */,
